@@ -35,6 +35,7 @@
     'M150 4 174 -18 166 18',
     'M88 244 110 266 122 238'
   ];
+  const auras={yellow:[0,0,4.2],ssj2:[1,0,2.8],ssj3:[1.7,1.2,1.9],red:[1.7,.7,1.6],blue:[2.2,1.4,1.1],silver:[2.5,1.8,.75]};
   const state = {clicks:0, awake:false, settled:false};
   let source, revealStarted=false;
   const sheet=document.createElement('link');
@@ -48,6 +49,12 @@
     const between=next?(state.clicks-level.at)/(next.at-level.at):1;
     const endEnergy=index===2?24:next?Math.max(level.energy,next.energy):24;
     const energy=level.energy+(endEnergy-level.energy)*between;
+    const aura=auras[level.key];
+    const accent=state.awake?`hsl(${level.h} ${level.s}% ${level.l}%)`:'#72d6ff';
+    document.documentElement.style.setProperty('--blue',accent);
+    document.documentElement.style.setProperty('--red',state.awake?`hsl(${level.h} ${level.s}% ${Math.min(95,level.l+7)}%)`:'#ef6269');
+    document.documentElement.style.setProperty('--primary-ink','#171717');
+    document.documentElement.style.setProperty('--primary-icon-filter','brightness(0)');
     for(const svg of document.querySelectorAll('.crown-svg')) {
       svg.dataset.stage=state.awake?level.key:'original';
       svg.dataset.clicks=state.clicks;
@@ -58,7 +65,12 @@
       svg.style.setProperty('--crown-s',level.s+'%');
       svg.style.setProperty('--crown-l',level.l+'%');
       svg.style.setProperty('--crown-weight',1.5+between*.8);
-      svg.querySelectorAll('.crown-bolt').forEach((path,i)=>{
+      svg.style.setProperty('--crown-logo-glow',aura[0]);
+      svg.style.setProperty('--crown-electric-glow',aura[1]);
+      svg.style.setProperty('--crown-speed',aura[2]*(1-between*.2)+'s');
+      svg.querySelectorAll('.crown-arc').forEach((arc,i)=>arc.style.setProperty('--presence',Math.max(0,Math.min(1,energy-i))));
+      svg.querySelectorAll('.crown-bolt,.crown-bolt-trail').forEach((path,i)=>{
+        i=Math.floor(i/2);
         path.style.strokeDashoffset=100*(1-Math.max(0,Math.min(1,energy-i)));
       });
     }
@@ -76,21 +88,22 @@
     svg.setAttribute('class','brand-lockup crown-svg');
     svg.setAttribute('aria-hidden','true');
     svg.dataset.restored=String(state.settled);
-    svg.innerHTML=`<g transform="translate(16 22) scale(.828125)"><g class="crown-base">${source.mark}</g><g class="crown-powered">${source.mark}</g><g class="crown-energy">${bolts.map(d=>`<path class="crown-bolt" pathLength="100" d="${d}"/>`).join('')}</g></g>${source.words}`;
+    svg.innerHTML=`<g transform="translate(16 22) scale(.828125)"><g class="crown-logo-echo">${source.mark}</g><g class="crown-base">${source.mark}</g><g class="crown-powered">${source.mark}</g><g class="crown-energy">${bolts.map(d=>`<g class="crown-arc"><path class="crown-bolt-trail" pathLength="100" d="${d}"/><path class="crown-bolt" pathLength="100" d="${d}"/><path class="crown-spark" pathLength="100" d="${d}"/></g>`).join('')}</g></g>${source.words}`;
     brand.querySelector('.brand-lockup').replaceWith(svg);
     brand.dataset.crownBound='true';
     brand.setAttribute('role','button');
     brand.setAttribute('aria-label','Impression King');
-    brand.addEventListener('click',event=>{event.preventDefault();click();});
+    brand.addEventListener('click',event=>event.preventDefault());
     brand.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key))event.preventDefault();});
-    brand.addEventListener('keyup',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();click();}});
+    brand.addEventListener('keyup',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();brand.click();}});
     paint();
     if(!revealStarted) {
       revealStarted=true;
-      setTimeout(()=>{state.awake=true;paint();},650);
-      setTimeout(()=>{state.settled=true;paint();},3650);
+      setTimeout(()=>{state.awake=true;paint();},4000);
+      setTimeout(()=>{state.settled=true;paint();},7000);
     }
   }
+  document.addEventListener('click',event=>{if(event.target instanceof Element&&event.target.closest('button,a,input,select,textarea,summary,[role=button],[data-active],.g-small-callout'))click();});
   document.addEventListener('showcase:render',mount);
   fetch('/assets/brand/logo-horizontal.svg').then(response=>response.text()).then(text=>{
     const svg=new DOMParser().parseFromString(text,'image/svg+xml').documentElement;
