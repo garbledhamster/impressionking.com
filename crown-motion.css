@@ -17,3 +17,6 @@ html[data-site-tools=false] .prototype-bar,html[data-site-tools=false] .theme-pa
 @keyframes crown-afterglow{0%,100%{transform:scale(1.02);opacity:calc(var(--crown-logo-glow)*.45)}55%{transform:scale(1.07);opacity:calc(var(--crown-logo-glow)*.8)}}
 @keyframes crown-residue{0%,100%{opacity:calc(var(--crown-electric-glow)*.3)}60%{opacity:calc(var(--crown-electric-glow)*.75)}}
 @media(prefers-reduced-motion:reduce){.crown-powered,.crown-energy,.crown-bolt,.crown-bolt-trail,.crown-spark,.crown-logo-echo{transition:none!important;animation:none!important}}
+
+/* Keep the crown’s negative space clear while the outer afterglow grows. */
+.crown-backplate{fill:var(--g-canvas,var(--background,#303030))}

@@ -1,17 +1,25 @@
 /* Crown interaction. Session memory only; refresh restores the first reveal. */
 (() => {
   'use strict';
+  const palettes={yellow:{h:49,s:100,l:60},red:{h:0,s:91,l:58},blue:{h:199,s:100,l:60},silver:{h:210,s:14,l:94}};
+  // Click thresholds, density and aura are deliberately kept together for tuning.
   const levels = [
-    {at:0, key:'yellow', h:49, s:100, l:60, energy:4},
-    {at:10, key:'ssj2', h:49, s:100, l:60, energy:8},
-    {at:25, key:'ssj3', h:49, s:100, l:60, energy:16},
-    {at:45, key:'red', h:0, s:91, l:58, energy:4, god:true},
-    {at:70, key:'blue', h:199, s:100, l:60, energy:12, god:true},
-    {at:100, key:'silver', h:210, s:14, l:94, energy:24, god:true}
+    {at:0, key:'yellow',family:'yellow',tier:1,energy:4, logo:0, electric:0, speed:4.2},
+    {at:10,key:'ssj2',  family:'yellow',tier:2,energy:10,logo:1, electric:0, speed:3.2},
+    {at:20,key:'ssj3',  family:'yellow',tier:3,energy:20,logo:1.7,electric:1.2,speed:2.5},
+    {at:30,key:'red',   family:'red',tier:1,energy:6, logo:1.7,electric:.7, speed:2.2},
+    {at:40,key:'red2',  family:'red',tier:2,energy:14,logo:2.1,electric:1.2,speed:1.9},
+    {at:50,key:'red3',  family:'red',tier:3,energy:24,logo:2.5,electric:1.7,speed:1.6},
+    {at:60,key:'blue',  family:'blue',tier:1,energy:10,logo:2.2,electric:1.4,speed:1.35},
+    {at:70,key:'blue2', family:'blue',tier:2,energy:18,logo:2.6,electric:1.9,speed:1.1},
+    {at:80,key:'blue3', family:'blue',tier:3,energy:28,logo:3, electric:2.3,speed:.88},
+    {at:90,key:'silver',family:'silver',tier:1,energy:14,logo:2.5,electric:1.8,speed:.7},
+    {at:95,key:'silver2',family:'silver',tier:2,energy:24,logo:3,electric:2.3,speed:.5},
+    {at:100,key:'silver3',family:'silver',tier:3,energy:32,logo:3.5,electric:2.8,speed:.32}
   ];
   const bolts = [
     'M22 10 6 -8 12 20 -12 12 5 44',
-    'M234 28 264 12 246 48 274 38 250 76',
+    'M210 18 222 -12 232 12 258 -10 242 26 272 12 246 48',
     'M242 210 264 226 244 222 250 258 228 240',
     'M28 232 6 258 14 226 -10 236 10 204',
     'M18 70 -12 54 4 82 -22 92 12 108',
@@ -33,9 +41,16 @@
     'M8 194 -10 214 24 220',
     'M246 216 266 238 234 236',
     'M150 4 174 -18 166 18',
-    'M88 244 110 266 122 238'
+    'M88 244 110 266 122 238',
+    'M184 14 196 -10 210 8 218 -18 230 14',
+    'M232 112 268 120 250 132 280 144',
+    'M224 224 240 270 216 254 208 278',
+    'M112 240 126 274 136 250 146 282',
+    'M28 112 -10 104 8 126 -22 136',
+    'M40 28 26 -14 48 6 62 -18',
+    'M20 212 -18 224 4 240 -12 258',
+    'M232 148 274 138 252 158 282 174'
   ];
-  const auras={yellow:[0,0,4.2],ssj2:[1,0,2.8],ssj3:[1.7,1.2,1.9],red:[1.7,.7,1.6],blue:[2.2,1.4,1.1],silver:[2.5,1.8,.75]};
   const state = {clicks:0, awake:false, settled:false};
   let source;
   if(!document.querySelector('link[href*="/crown-motion.css"]')){const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href='/crown-motion.css';document.head.append(sheet);}
@@ -46,27 +61,28 @@
     const index=levels.findLastIndex(level=>state.clicks>=level.at);
     const level=levels[index],next=levels[index+1];
     const between=next?(state.clicks-level.at)/(next.at-level.at):1;
-    const endEnergy=index===2?24:next?Math.max(level.energy,next.energy):24;
+    const endEnergy=next?.family===level.family?next.energy:Math.min(bolts.length,level.energy+4);
     const energy=level.energy+(endEnergy-level.energy)*between;
-    const aura=auras[level.key];
-    const accent=state.awake?`hsl(${level.h} ${level.s}% ${level.l}%)`:'#72d6ff';
+    const color=palettes[level.family];
+    const accent=state.awake?`hsl(${color.h} ${color.s}% ${color.l}%)`:'#72d6ff';
     document.documentElement.style.setProperty('--blue',accent);
-    document.documentElement.style.setProperty('--red',state.awake?`hsl(${level.h} ${level.s}% ${Math.min(95,level.l+7)}%)`:'#ef6269');
+    document.documentElement.style.setProperty('--red',state.awake?`hsl(${color.h} ${color.s}% ${Math.min(95,color.l+7)}%)`:'#ef6269');
     document.documentElement.style.setProperty('--primary-ink','#171717');
     document.documentElement.style.setProperty('--primary-icon-filter','brightness(0)');
     for(const svg of document.querySelectorAll('.crown-svg')) {
       svg.dataset.stage=state.awake?level.key:'original';
       svg.dataset.clicks=state.clicks;
+      svg.dataset.family=level.family;svg.dataset.tier=level.tier;
       svg.dataset.awake=String(state.awake);
       svg.dataset.electric=String(state.awake&&(state.settled||state.clicks>0));
-      svg.dataset.god=String(!!level.god);
-      svg.style.setProperty('--crown-h',level.h);
-      svg.style.setProperty('--crown-s',level.s+'%');
-      svg.style.setProperty('--crown-l',level.l+'%');
-      svg.style.setProperty('--crown-weight',1.5+between*.8);
-      svg.style.setProperty('--crown-logo-glow',aura[0]);
-      svg.style.setProperty('--crown-electric-glow',aura[1]);
-      svg.style.setProperty('--crown-speed',aura[2]*(1-between*.2)+'s');
+      svg.dataset.god=String(level.family!=='yellow');
+      svg.style.setProperty('--crown-h',color.h);
+      svg.style.setProperty('--crown-s',color.s+'%');
+      svg.style.setProperty('--crown-l',color.l+'%');
+      svg.style.setProperty('--crown-weight',1.25+level.tier*.35+between*.25);
+      svg.style.setProperty('--crown-logo-glow',level.logo);
+      svg.style.setProperty('--crown-electric-glow',level.electric);
+      svg.style.setProperty('--crown-speed',level.speed*(1-between*.12)+'s');
       svg.querySelectorAll('.crown-arc').forEach((arc,i)=>arc.style.setProperty('--presence',Math.max(0,Math.min(1,energy-i))));
       svg.querySelectorAll('.crown-bolt,.crown-bolt-trail').forEach((path,i)=>{
         i=Math.floor(i/2);
@@ -88,7 +104,10 @@
     svg.setAttribute('class','brand-lockup crown-svg');
     svg.setAttribute('aria-hidden','true');
     svg.dataset.restored=String(state.settled);
-    svg.innerHTML=`<g transform="translate(16 22) scale(.828125)"><g class="crown-logo-echo">${source.mark}</g><g class="crown-base">${source.mark}</g><g class="crown-powered">${source.mark}</g><g class="crown-energy">${bolts.map(d=>`<g class="crown-arc"><path class="crown-bolt-trail" pathLength="100" d="${d}"/><path class="crown-bolt" pathLength="100" d="${d}"/><path class="crown-spark" pathLength="100" d="${d}"/></g>`).join('')}</g></g>${source.words}`;
+    svg.innerHTML=`<g transform="translate(16 22) scale(.828125)"><g class="crown-logo-echo">${source.mark}</g><rect class="crown-backplate" x="16" y="16" width="224" height="224"/><g class="crown-base">${source.mark}</g><g class="crown-powered">${source.mark}</g><g class="crown-energy">${bolts.map(d=>`<g class="crown-arc"><path class="crown-bolt-trail" pathLength="100" d="${d}"/><path class="crown-bolt" pathLength="100" d="${d}"/><path class="crown-spark" pathLength="100" d="${d}"/></g>`).join('')}</g></g>${source.words}`;
+    // Energy stays behind the mark so dense silver trails cannot fill its cutouts.
+    const energyLayer=svg.querySelector('.crown-energy');
+    energyLayer.parentNode.insertBefore(energyLayer,svg.querySelector('.crown-backplate'));
     brand.querySelector('.brand-lockup').replaceWith(svg);
     brand.dataset.crownBound='true';
     brand.setAttribute('role','button');
