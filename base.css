@@ -1,0 +1,4 @@
+@font-face{font-family:Space;src:url('/assets/space-grotesk.woff2') format('woff2');font-display:swap}
+@font-face{font-family:Inter;src:url('/assets/inter.woff2') format('woff2');font-display:swap}
+:root{color-scheme:dark;--blue:#72d6ff;--red:#ef6269;--background:#303030;--surface:#3b3b3b;--edge:#626262;--muted:#d0d0d0}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--background);color:#fafafa}button,input,select,textarea{font:inherit}button,a{touch-action:manipulation}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:Space,Inter,sans-serif}a{color:inherit;text-underline-offset:.2em}.skip{position:fixed;left:-1000px;top:8px;z-index:200;padding:12px;background:#fff;color:#171717}.skip:focus{left:8px}.loading{padding:32px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--blue);outline-offset:3px}[hidden]{display:none!important}

@@ -37,9 +37,8 @@
   ];
   const auras={yellow:[0,0,4.2],ssj2:[1,0,2.8],ssj3:[1.7,1.2,1.9],red:[1.7,.7,1.6],blue:[2.2,1.4,1.1],silver:[2.5,1.8,.75]};
   const state = {clicks:0, awake:false, settled:false};
-  let source, revealStarted=false;
-  const sheet=document.createElement('link');
-  sheet.rel='stylesheet';sheet.href='/crown-motion.css';document.head.append(sheet);
+  let source;
+  if(!document.querySelector('link[href*="/crown-motion.css"]')){const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href='/crown-motion.css';document.head.append(sheet);}
   const query=new URL(location.href).searchParams;
   document.documentElement.dataset.siteTools=String(query.get('tools')==='1'||/^(localhost|127\.|10\.|192\.168\.)/.test(location.hostname));
 
@@ -76,6 +75,7 @@
     }
   }
   function click() {
+    if(!state.awake)setTimeout(()=>{state.settled=true;paint();},3000);
     state.clicks=Math.min(100,state.clicks+1);
     state.awake=true;
     paint();
@@ -97,13 +97,9 @@
     brand.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key))event.preventDefault();});
     brand.addEventListener('keyup',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();brand.click();}});
     paint();
-    if(!revealStarted) {
-      revealStarted=true;
-      setTimeout(()=>{state.awake=true;paint();},4000);
-      setTimeout(()=>{state.settled=true;paint();},7000);
-    }
+
   }
-  document.addEventListener('click',event=>{if(event.target instanceof Element&&event.target.closest('button,a,input,select,textarea,summary,[role=button],[data-active],.g-small-callout'))click();});
+  document.addEventListener('click',event=>{if(!(event.target instanceof Element))return;const target=event.target;if(!state.awake&&!target.closest('.site-header .brand'))return;if(target.closest('button,a,input,select,textarea,summary,[role=button],[data-active],.g-small-callout'))click();});
   document.addEventListener('showcase:render',mount);
   fetch('/assets/brand/logo-horizontal.svg').then(response=>response.text()).then(text=>{
     const svg=new DOMParser().parseFromString(text,'image/svg+xml').documentElement;

@@ -1,13 +1,15 @@
 # Impression King
 
-Static site preview for Jacob Williams / Impression King. Includes voice samples, a separate music collection, the Framed/Open/Round brand roles, and five crown motion studies.
+Jacob Williams’s creator gallery: voices, beats, trailers, about and service inquiries.
 
-Run locally with `python3 -m http.server 8847`, then open `http://localhost:8847`.
+Buildless HTML/CSS/JavaScript. GitHub Pages serves the repository root at https://impressionking.com. Run `python3 -m http.server 8847` for a local preview.
 
-The repository root is ready for GitHub Pages. `CNAME` retains impressionking.com and `.nojekyll` serves the static assets directly. The Mac planning workshop and its saved answers are excluded.
+`showcase.js/css` owns the single-screen gallery and persistent mailto form; `media-player.js` embeds original TikToks; `player-signals.js` validates events and recovers playback from progress; `crown-motion.js/css` owns the hidden logo interaction. The new orange-hoodie character set is under `assets/character`.
 
-Brand interaction is implemented with the actual vector crown, CSS and JavaScript. Session state resets on refresh. The earlier comparison workshop remains in the local project history.
+The crown does not activate automatically. The first header-logo click unlocks it; 100 logo clicks reaches silver. Refresh resets it. Other site interactions contribute after unlocking.
 
-Catalog data is a curated snapshot, not a live TikTok importer. TikTok videos use the official embedded player. The inquiry form is a labeled demo and sends nothing; gear and draft copy retain their preview labels. Theme preferences on this static host save only in the current browser. The Mac workshop keeps its separate shared settings.
+Inquiries open the visitor’s email app addressed to jacob@impressionking.com. They are not sent by a backend. Catalog data is still fifteen curated samples; full automatic history sync awaits a metadata provider. Theme tuning is available with `?tools=1`; it stores only appearance in that browser.
 
-Heroicons, fonts, Popper and Tippy licenses are included beside their assets. The current profile illustration comes from Jacob’s public TikTok profile and remains a placeholder pending an approved real photograph.
+Brand marks use Framed for interaction, Open for standalone use and Round for favicons/web app icons. Generated character artwork is illustrative, not proof of actual recording gear. Private planning answers and workshop files are excluded.
+
+Verification: `node tests/site.browser.cjs`, `node tests/media.browser.cjs`, `node tests/crown.browser.cjs` (Playwright from Joe’s local runtime). Media transport test uses a controlled iframe fixture; real provider behavior remains subject to TikTok.
