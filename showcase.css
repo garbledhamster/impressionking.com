@@ -272,3 +272,28 @@ body[data-layout=C] .g-about-copy p{font-size:14px;line-height:1.6;margin-bottom
 .g-small-callout>.g-character,.g-small-callout.g-reverse>.g-character{top:auto;bottom:0;object-position:center bottom}
 @media(max-width:700px) and (orientation:portrait){.gallery-study .g-callout>.g-character{top:auto;bottom:var(--copy-height,0px);height:calc(100% - var(--copy-height,0px) + 18px);object-position:center bottom}}
 @media(orientation:landscape) and (max-height:600px){.gallery-study .g-small-callout>.g-character,.gallery-study .g-small-callout.g-reverse>.g-character{top:auto;bottom:0;height:calc(100% + 10px);object-position:center bottom}}
+
+/* Slightly larger identity; responsive header space preserves the one-screen layout. */
+.g-shell{grid-template-rows:90px minmax(0,1fr)}
+.g-header.site-header{height:90px}
+.g-header .brand-lockup{width:196px;max-height:56px}
+/* Square scrollbar thumbs on each child scroller, including the video drawer. */
+.gallery-study *{scrollbar-width:thin;scrollbar-color:var(--blue) var(--g-canvas)}
+@supports selector(::-webkit-scrollbar){.gallery-study *{scrollbar-width:auto;scrollbar-color:auto}}
+.gallery-study ::-webkit-scrollbar{width:8px;height:8px}
+.gallery-study ::-webkit-scrollbar-track,.gallery-study ::-webkit-scrollbar-corner{background:var(--g-canvas);border-radius:0}
+.gallery-study ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:0;border:0;min-height:24px;min-width:24px}
+/* The drawer's actions use icons; accessible names and tooltips explain them. */
+.g-player-actions button,.g-player-links button,.g-excerpt button,.g-player-top .g-nav-button,.g-player-links a{width:44px;height:44px;min-height:44px;min-width:44px;padding:10px;justify-content:center}
+.g-player-actions .g-icon,.g-player-links .g-icon,.g-excerpt .g-icon{background:currentColor}
+#g-auto-next[aria-pressed=true]{background:var(--blue);color:#171717;border-color:var(--blue)}
+.g-excerpt summary{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;min-height:44px;padding:10px;list-style:none;border:1px solid #626262;border-radius:3px}
+.g-excerpt summary::-webkit-details-marker{display:none}
+#g-player-frame{width:min(100%,calc((100dvh - 350px)*9/16))}
+.tippy-box[data-theme~=joe]{background:#282828;color:#fff;border:1px solid #626262;border-radius:6px;box-shadow:0 5px 18px #0005;font-size:12px;line-height:1.5;white-space:pre-line;overflow-wrap:anywhere}
+.tippy-box[data-theme~=joe] .tippy-content{padding:9px 11px}
+.tippy-box[data-theme~=joe]>.tippy-arrow{color:#282828}
+@media(max-width:700px){.g-shell{grid-template-rows:70px minmax(0,1fr)}.g-header.site-header{height:70px;gap:clamp(6px,2vw,12px)}.g-header .brand-lockup{width:clamp(148px,40vw,164px);max-height:50px}}
+@media(orientation:landscape) and (max-height:600px){.g-shell{grid-template-rows:66px minmax(0,1fr)}.g-header.site-header{height:66px}.g-header .brand-lockup{width:160px;max-height:46px}#g-player-frame{width:calc((100dvh - 135px)*9/16)}}
+
+@media(orientation:landscape) and (max-height:600px){#g-player-frame{width:calc((100dvh - 150px)*9/16)}}
