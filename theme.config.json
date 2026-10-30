@@ -1,0 +1,149 @@
+{
+  "defaults": {
+    "palette": "ash",
+    "accent": "#72d6ff",
+    "hover": "#ef6269",
+    "density": "comfortable",
+    "corners": "soft",
+    "filters": "filled",
+    "headings": "display"
+  },
+  "palettes": {
+    "slate": {
+      "label": "Slate",
+      "tokens": {
+        "background": "#1c1c1c",
+        "surface": "#292929",
+        "input": "#242424",
+        "selected": "#383838",
+        "edge": "#666666",
+        "light": "#eeeeee",
+        "muted": "#bfbfbf",
+        "border": "#808080",
+        "divider": "#4a4a4a",
+        "tag": "#2c2c2c",
+        "tagText": "#dedede",
+        "button": "#333333",
+        "player": "#121212"
+      }
+    },
+    "graphite": {
+      "label": "Graphite",
+      "tokens": {
+        "background": "#111111",
+        "surface": "#202020",
+        "input": "#191919",
+        "selected": "#303030",
+        "edge": "#666666",
+        "light": "#eeeeee",
+        "muted": "#bfbfbf",
+        "border": "#808080",
+        "divider": "#444444",
+        "tag": "#242424",
+        "tagText": "#dedede",
+        "button": "#292929",
+        "player": "#121212"
+      }
+    },
+    "ash": {
+      "label": "Ash",
+      "tokens": {
+        "background": "#303030",
+        "surface": "#3b3b3b",
+        "input": "#363636",
+        "selected": "#4b4b4b",
+        "edge": "#939393",
+        "light": "#fafafa",
+        "muted": "#d0d0d0",
+        "border": "#a1a1a1",
+        "divider": "#777777",
+        "tag": "#444444",
+        "tagText": "#dedede",
+        "button": "#454545",
+        "player": "#121212"
+      }
+    }
+  },
+  "choices": {
+    "density": {
+      "comfortable": {
+        "label": "Comfortable",
+        "tokens": {
+          "sampleGap": "2rem",
+          "samplePadding": "1.1rem",
+          "controlPadding": ".55rem .85rem",
+          "compactGap": ".65rem"
+        }
+      },
+      "compact": {
+        "label": "Compact",
+        "tokens": {
+          "sampleGap": "1rem",
+          "samplePadding": ".55rem",
+          "controlPadding": ".45rem .7rem",
+          "compactGap": ".35rem"
+        }
+      }
+    },
+    "corners": {
+      "crisp": {
+        "label": "Crisp",
+        "tokens": {
+          "radius": "2px",
+          "watchRadius": "2px"
+        }
+      },
+      "soft": {
+        "label": "Soft",
+        "tokens": {
+          "radius": "6px",
+          "watchRadius": "12px"
+        }
+      },
+      "round": {
+        "label": "Round",
+        "tokens": {
+          "radius": "24px",
+          "watchRadius": "24px"
+        }
+      }
+    },
+    "filters": {
+      "filled": {
+        "label": "Filled"
+      },
+      "outline": {
+        "label": "Outline"
+      },
+      "underline": {
+        "label": "Underline"
+      }
+    },
+    "headings": {
+      "display": {
+        "label": "Space Grotesk",
+        "tokens": {
+          "headingFont": "Space, system-ui, sans-serif"
+        }
+      },
+      "body": {
+        "label": "Inter",
+        "tokens": {
+          "headingFont": "Inter, system-ui, sans-serif"
+        }
+      }
+    }
+  },
+  "components": {
+    "orbitSize": "132px",
+    "drawerWidth": "320px",
+    "orbitDuration": "12s",
+    "drawerMotion": "360ms",
+    "canvasMax": "1680px",
+    "desktopSidebar": "248px",
+    "desktopGridMin": "600px",
+    "catalogMin": "180px",
+    "desktopDrawerWidth": "400px",
+    "landscapeDrawerWidth": "720px"
+  }
+}

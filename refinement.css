@@ -1,0 +1,126 @@
+/* Shared type roles and interaction colors for the five local studies. */
+:root {
+  --body-font: Inter, system-ui, sans-serif;
+  --primary-ink: #171717;
+  --primary-icon-filter: brightness(0);
+}
+
+body {font-family:var(--body-font);font-size:1rem;line-height:1.6}
+h1,h2,h3 {font-family:var(--heading-font);text-wrap:balance}
+.intro {padding:2.2rem 0 1.6rem}
+.intro h1 {font-size:clamp(2.4rem,4.8vw,4rem);font-weight:700;line-height:1.08;letter-spacing:-.035em;text-transform:none}
+.brand {font-family:var(--heading-font);font-size:1.2rem;letter-spacing:.035em}
+.brand small {font-family:var(--body-font);font-size:.75rem;line-height:1.5;letter-spacing:.07em}
+.about h2,.more-sections h2 {font-size:clamp(1.6rem,2.5vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-.025em}
+.about p,.more-sections p {max-width:65ch;line-height:1.75}
+.sample .sample-type {font-size:.875rem;line-height:1.45}
+.sample-tags span {font-family:var(--body-font);font-size:.75rem;line-height:1.5}
+.orbit-label text {font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.6px}
+.variant-C .sample .sample-name,.variant-D .sample-group>h3 {font-size:1.25rem;line-height:1.3;font-weight:700;letter-spacing:-.015em}
+.header-nav,.chip,.control,.button,.search-label,summary {font-family:var(--body-font);font-weight:600}
+.category-status {font-size:.875rem;font-variant-numeric:tabular-nums}
+.video-drawer .selected-title {font-family:var(--heading-font);font-size:1.1rem;line-height:1.3;font-weight:700}
+
+/* Guidance stays readable, while its outline and icon establish its purpose. */
+.intro p,.video-drawer .player-status,.empty {
+  position:relative;
+  border:1px solid color-mix(in srgb,var(--blue) 45%,var(--divider));
+  border-radius:var(--radius);
+  background:color-mix(in srgb,var(--blue) 7%,var(--surface));
+  color:var(--light);
+  text-align:left;
+  padding:.85rem 1rem .85rem 2.9rem;
+  font-family:var(--body-font);
+  font-size:.9375rem;
+  line-height:1.6;
+}
+.intro p {width:fit-content;max-width:min(100%,62ch);margin:1.1rem auto 0}
+.intro p::before,.video-drawer .player-status::before,.empty::before {
+  content:"";position:absolute;left:1rem;top:1rem;width:1.15rem;height:1.15rem;
+  background:var(--blue);
+  mask:url('/assets/icons/information-circle.svg') center/contain no-repeat;
+}
+.intro .accent-rule {display:none}
+.video-drawer .player-status {margin:.75rem 0;padding:.65rem .75rem .65rem 2.5rem;font-size:.8125rem}
+.video-drawer .player-status::before {left:.75rem;top:.8rem;width:1rem;height:1rem}
+.video-drawer .duration p {font-size:.75rem;line-height:1.5;font-variant-numeric:tabular-nums}
+.video-drawer .control {font-size:.8125rem;min-height:44px}
+.video-drawer .excerpt {font-size:.8125rem;line-height:1.6}
+.theme-panel #theme-contrast {border:1px solid var(--blue);padding:.65rem .75rem;border-radius:var(--radius);color:var(--light);background:color-mix(in srgb,var(--blue) 7%,var(--surface))}
+.theme-panel #theme-contrast[data-warning=true] {color:#f3d18a;border-color:#f3d18a;background:#3a3326}
+
+/* A colored label or outline marks every site-owned click target. */
+.site a,.site button,.site summary,.prototype-bar a,.prototype-bar button,
+.theme-panel button,.theme-panel select,.theme-panel input[type=color] {color:var(--blue);border-color:var(--blue)}
+.site a:not(.brand):not(.header-nav a):not(#original-link):not(.cta) {text-decoration:underline;text-decoration-thickness:1px}
+.site input {border-color:var(--blue);caret-color:var(--blue);accent-color:var(--blue)}
+.site select,.site input[type=checkbox],.site input[type=radio] {accent-color:var(--blue)}
+.site .chip[aria-pressed=true] {color:var(--blue);border-color:var(--blue);font-weight:700}
+.site .chip small {color:inherit}
+.site .section-tab {color:var(--blue)}
+.site .section-tab[aria-pressed=false] {border-bottom-color:transparent}
+.site .section-tab[aria-pressed=true] {border-bottom-color:var(--blue);font-weight:700}
+.site .sample-watch.orbit-button {color:var(--blue)}
+.orbit-core,.orbit-button[data-playing=true] .orbit-core {background:var(--blue);border:1px solid var(--blue);color:var(--primary-ink)}
+.orbit-button .orbit-core img {filter:var(--primary-icon-filter)}
+.orbit-button[data-playing=true] .orbit-core {outline:2px solid var(--blue);outline-offset:4px}
+.drawer-handle {color:var(--blue);border-bottom-color:var(--blue)}
+.prototype-bar {background:var(--surface);color:var(--light);border:1px solid var(--divider)}
+.prototype-bar .icon-button,.prototype-bar .theme-toggle,.theme-panel button,.theme-panel select,.theme-panel input[type=color] {background:var(--input);color:var(--blue);border:1px solid var(--blue)}
+.theme-toggle[aria-expanded=true] {box-shadow:none;background:var(--blue);color:var(--primary-ink)}
+.theme-panel {background:var(--surface);border-color:var(--blue)}
+.theme-panel #theme-save {background:var(--blue);color:var(--primary-ink);border-color:var(--blue)}
+.site a img,.prototype-bar img {filter:brightness(0) invert(1)}
+.site #original-link {border:1px solid var(--blue);border-radius:var(--radius);min-width:44px;min-height:44px}
+.site a:has(img),.prototype-bar :is(a,button):has(img) {position:relative}
+.site a img,.prototype-bar img {visibility:hidden}
+.site a:has(img)::after,.prototype-bar :is(a,button):has(img)::after {content:"";width:1.1rem;height:1.1rem;position:absolute;right:.4rem;top:50%;transform:translateY(-50%);background:currentColor;mask:url('/assets/icons/arrow-top-right-on-square.svg') center/contain no-repeat;pointer-events:none}
+.site #original-link::after {right:50%;transform:translate(50%,-50%)}
+.prototype-bar button:has(img)::after {right:50%;transform:translate(50%,-50%)}
+.prototype-bar #variant-prev::after {mask-image:url('/assets/icons/arrow-left.svg')}
+.prototype-bar #variant-next::after {mask-image:url('/assets/icons/arrow-right.svg')}
+
+.site a:hover,.site summary:hover,.site .section-tab:hover,.prototype-bar a:hover {color:var(--red);border-color:var(--red)}
+.site .section-tab[aria-pressed=true]:hover {border-bottom-color:var(--red)}
+.site .chip:hover,.site .chip[aria-pressed=true]:hover,.site .control:hover,.site .button:hover,
+.site .icon-button:hover,.prototype-bar button:hover,.theme-panel button:hover,
+.theme-panel #theme-save:hover,.theme-panel select:hover,.theme-panel input[type=color]:hover {
+  background:var(--red);border-color:var(--red);color:var(--hover-ink,#171717);
+}
+html[data-filters=underline] .site .chip:hover {background:transparent;color:var(--red);border-bottom-color:var(--red)}
+.site .sample-watch.orbit-button:hover {background:transparent;color:var(--red)}
+.orbit-button:hover .orbit-core,.orbit-button[data-playing=true]:hover .orbit-core {background:var(--red);border-color:var(--red);outline-color:var(--red)}
+.orbit-button:hover .orbit-label {color:var(--red)}
+.orbit-button:hover .orbit-core img,.prototype-bar button:hover img {filter:var(--hover-icon-filter,brightness(0))}
+.site a:hover img,.prototype-bar a:hover img {filter:var(--link-hover-icon-filter,none)}
+.site input:hover {border-color:var(--red)}
+.site :is(a,button,input,summary,select):focus-visible,.prototype-bar :is(a,button):focus-visible,
+.theme-panel :is(button,input,select):focus-visible {outline:3px solid var(--blue);outline-offset:4px}
+.theme-panel :disabled {opacity:.5;cursor:wait}
+.theme-panel button:disabled:hover {background:var(--input);border-color:var(--blue);color:var(--blue)}
+
+/* Standards fallback; exact thumb-hover styling where pseudo-elements exist. */
+* {scrollbar-color:var(--blue) var(--input);scrollbar-width:auto}
+.theme-panel,html {scrollbar-color:var(--blue) var(--input)}
+@supports selector(::-webkit-scrollbar) {
+  *,html,.theme-panel {scrollbar-color:auto}
+  ::-webkit-scrollbar {width:14px;height:14px}
+  ::-webkit-scrollbar-track,::-webkit-scrollbar-corner {background:var(--input)}
+  ::-webkit-scrollbar-thumb {background:var(--blue);border:3px solid var(--input);border-radius:10px;background-clip:padding-box}
+  ::-webkit-scrollbar-thumb:hover,::-webkit-scrollbar-thumb:active {background-color:var(--red)}
+}
+@media(max-width:740px) {
+  .intro,.variant-E .intro {padding:1.3rem 0}
+  .intro h1 {font-size:clamp(2rem,8vw,2.75rem);line-height:1.12}
+  .intro p {font-size:.875rem;padding:.75rem .8rem .75rem 2.5rem;margin-top:.9rem}
+  .intro p::before {left:.8rem;top:.9rem;width:1rem;height:1rem}
+  .header-nav {font-size:.8125rem;gap:.65rem}
+  .browse-tools>summary {font-size:.9375rem}
+  .brand {font-size:1.1rem}
+}
+@media(forced-colors:active) {
+  *,html,.theme-panel {scrollbar-color:auto}
+  .orbit-core {background:ButtonFace;color:ButtonText;border-color:ButtonText}
+  .orbit-core img,.prototype-bar img,.site a img {filter:none}
+  .intro p,.video-drawer .player-status,.empty {background:Canvas;color:CanvasText;border-color:CanvasText}
+}

@@ -1,0 +1,13 @@
+{
+  "revision": 7,
+  "updated_at": "2026-10-30T16:46:02.474735+00:00",
+  "settings": {
+    "palette": "ash",
+    "accent": "#72d6ff",
+    "hover": "#ef6269",
+    "density": "compact",
+    "corners": "crisp",
+    "filters": "filled",
+    "headings": "display"
+  }
+}

@@ -1,0 +1,14 @@
+/* Approved Signal Crown identity; layout, playback and theme controls remain shared. */
+:root{--background:#303030;--surface:#3b3b3b;--blue:#72d6ff}
+.site-header .brand{align-items:flex-start;gap:.3rem;flex-shrink:0;letter-spacing:0}
+.brand-lockup{display:block;width:clamp(190px,17vw,240px);height:auto;max-width:100%}
+.site .brand .brand-lockup{visibility:visible;filter:none}
+.site .brand::after{content:none}
+.site-header .brand small{padding-left:31%;letter-spacing:.08em}
+.brand-footer{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:1.2rem 2rem;padding:2rem 1rem;margin:2rem auto 0;border-top:1px solid var(--divider);color:var(--muted);text-align:center}
+.brand-footer>img{width:170px;height:auto}
+.brand-footer p,.brand-footer a{font-size:.85rem}
+.brand-footer a:hover{color:var(--red)}
+@media(min-width:741px) and (max-width:1119px){.site-header{gap:1rem}.site-header .header-nav{min-width:0;flex-wrap:wrap;justify-content:flex-end;row-gap:.25rem}}
+@media(max-width:740px){.site-header .brand{align-items:center}.brand-lockup{width:200px}.site-header .brand small{padding-left:0}.brand-footer{flex-direction:column;gap:.8rem}}
+@media(orientation:landscape) and (max-height:600px){.brand-lockup{width:160px}.site-header .brand small{font-size:.65rem}.site-header .brand{gap:.1rem}}
