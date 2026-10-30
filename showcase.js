@@ -9,14 +9,14 @@
  const serviceNames={voices:'Voice work',beats:'Beat request',trailers:'Trailer voiceover',about:'General inquiry',services:'General inquiry'};
  const titles={welcome:'Home',voices:'Voices',beats:'Beats',trailers:'Trailers',about:'About',services:'Services'};
  const icons={welcome:'user-circle',voices:'microphone',beats:'musical-note',trailers:'play-circle',about:'user-circle',services:'squares-2x2'};
- const art={welcome:'hoodie-welcome',voices:'hoodie-phone-wired',beats:'hoodie-beats',trailers:'hoodie-trailer',about:'hoodie-profile'};
+ const art={welcome:'hoodie-welcome',voices:'hoodie-phone-wired-v2',beats:'hoodie-beats-table-v2',trailers:'hoodie-trailer-standing',about:'hoodie-profile'};
  const copy={voices:['Voice impressions.','Anime, games and cartoons. Hear Jacob’s voices and tell him what you have in mind.','Request a voice'],beats:['Music & beats.','Browse Jacob’s beats and remixes. Choose a track to include it in your request.','Request a beat'],trailers:['Trailer voiceovers.','Tell Jacob about the story, the tone and where your trailer will run.','Discuss a trailer']};
  const bio='Jacob Williams, known online as Impression King, makes character impressions, voice recordings and beats. Anime, games and cartoons inspire his performances. He shares his work on TikTok and welcomes inquiries about character recordings, voiceovers and trailers.';
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const icon=n=>`<span class="g-icon" style="--g-icon:url('/assets/icons/${n}.svg')" aria-hidden="true"></span>`;
  const image=(name,cl='g-character')=>`<img class="${cl}" src="/assets/character/jacob-${art[name]}.webp" alt="${name==='about'?'Professional anime portrait of Jacob Williams':name==='beats'?'Jacob’s character making beats':name==='trailers'?'Jacob’s character recording at a studio microphone':'Jacob’s character recording with a phone and wired microphone'}" draggable="false">`;
  const root=document.querySelector('#app');
- if(!document.querySelector('link[href*="/showcase.css"]')){const link=document.createElement('link');link.rel='stylesheet';link.href='/showcase.css?v=hoodie-1';document.head.append(link);}
+ if(!document.querySelector('link[href*="/showcase.css"]')){const link=document.createElement('link');link.rel='stylesheet';link.href='/showcase.css?v=hoodie-2';document.head.append(link);}
  document.body.className='gallery-study';document.body.dataset.layout=state.variant;
  document.documentElement.classList.add('gallery-document');
  document.querySelector('.prototype-bar')?.remove();document.querySelector('#theme-panel')?.remove();
@@ -51,7 +51,7 @@
   state.section=section;state.category='All';
   clearTimeout(oldCardTimer);viewport.querySelectorAll('.g-leaving').forEach(n=>n.remove());
   const old=viewport.querySelector('[data-active]');if(old){old.removeAttribute('data-active');old.classList.add('g-leaving');old.inert=true;old.setAttribute('aria-hidden','true');old.style.setProperty('--direction',direction);}
-  viewport.insertAdjacentHTML('beforeend',card());const current=viewport.querySelector('[data-active]');current.style.setProperty('--direction',direction);if(old)current.classList.add('g-entering');
+  viewport.insertAdjacentHTML('beforeend',card());const current=viewport.querySelector('[data-active]');current.style.setProperty('--direction',direction);if(old)current.classList.add('g-entering');requestAnimationFrame(fitArt);
   oldCardTimer=setTimeout(()=>{old?.remove();current.classList.remove('g-entering');},420);updateNavigation();
  }
  function next(step=1){navigate(sections[(sections.indexOf(state.section)+step+sections.length)%sections.length],step);}
@@ -83,7 +83,9 @@
 
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&contact.classList.contains('g-open'))hideContact();});
  contact.addEventListener('keydown',e=>{if(e.key!=='Tab'||!contact.classList.contains('g-open')||!compact.matches)return;const fields=[...contact.querySelectorAll('a,button,input,textarea,select')].filter(n=>n.getClientRects().length);const first=fields[0],last=fields.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}});
- function fit(){document.documentElement.style.setProperty('--g-height',(window.visualViewport?.height||innerHeight)+'px');if(!compact.matches){document.querySelector('.g-gallery').inert=false;document.querySelector('.g-picker').inert=false;contact.removeAttribute('aria-modal');}}
+ function fitArt(){viewport.querySelectorAll('.g-callout').forEach(card=>{const copy=card.querySelector('.g-feature-copy');if(copy)card.style.setProperty('--copy-height',copy.getBoundingClientRect().height+'px');});}
+ document.fonts.ready.then(fitArt);
+ function fit(){requestAnimationFrame(fitArt);document.documentElement.style.setProperty('--g-height',(window.visualViewport?.height||innerHeight)+'px');if(!compact.matches){document.querySelector('.g-gallery').inert=false;document.querySelector('.g-picker').inert=false;contact.removeAttribute('aria-modal');}}
  window.addEventListener('resize',fit);window.visualViewport?.addEventListener('resize',fit);fit();
  state.service=serviceNames[state.section]||'General inquiry';syncContext();viewport.innerHTML=card();updateNavigation();document.dispatchEvent(new Event('showcase:render'));
  fetch('/data/catalog.json').then(r=>{if(!r.ok)throw Error('Catalog unavailable');return r.json();}).then(data=>{state.videos=data.videos||[];const target=document.querySelector('#g-samples');if(target)target.innerHTML=samples();}).catch(()=>{const target=document.querySelector('#g-samples');if(target)target.innerHTML='<p class="g-empty">Samples could not load. You can still contact Jacob.</p>';});
