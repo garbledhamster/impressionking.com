@@ -66,3 +66,21 @@
 .gallery-study .g-contact[data-form-tight=true] .g-form-actions .g-icon{display:block;width:20px;height:20px;background:currentColor}
 .gallery-study .g-contact[data-form-tight=true] .g-email-label,.gallery-study .g-contact[data-form-tight=true] .g-contact-top h2{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .gallery-study .g-contact[data-form-tight=true] .g-contact-handle>span{margin-left:0;margin-right:auto;transform:translateX(-70px)}
+/* Delivery feedback replaces the form content inside the same drawer. */
+.gallery-study .g-contact[data-submit-feedback=true] .g-contact-top{visibility:hidden}
+.gallery-study .g-contact[data-submit-feedback=true] :is(.g-form-body,.g-field-picker,.g-form-actions){visibility:hidden}
+#g-submit-feedback{position:absolute;inset:44px 0 0;z-index:4;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;padding:24px;text-align:center;background:var(--g-surface);color:var(--g-text);outline:none}
+#g-submit-feedback h3{font-size:25px;line-height:1.2;margin:0}
+#g-submit-feedback p{max-width:32ch;font-size:15px;line-height:1.6;color:var(--g-muted);margin:0}
+.g-feedback-symbol{width:48px;height:48px;flex-shrink:0;background:var(--blue);mask:var(--g-result-icon) center/contain no-repeat}
+#g-submit-feedback[data-kind=error] .g-feedback-symbol{background:var(--red)}
+.g-feedback-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.g-feedback-actions button{min-height:44px;padding:8px 12px;border:1px solid var(--blue);background:transparent;color:var(--blue);font:inherit;font-size:13px;border-radius:0}
+.g-feedback-actions button:hover{color:var(--red);border-color:var(--red)}
+#g-form[aria-busy=true] button[type=submit]{opacity:.65;cursor:wait}
+.gallery-study .g-contact[data-form-compact=true] #g-submit-feedback{display:grid;grid-template-rows:auto minmax(0,1fr) auto;justify-items:center;align-content:center;gap:4px;padding:6px 12px}
+.gallery-study .g-contact[data-form-compact=true] .g-feedback-symbol{display:none}
+.gallery-study .g-contact[data-form-compact=true] #g-submit-feedback h3{font-size:18px}
+.gallery-study .g-contact[data-form-compact=true] #g-submit-feedback p{font-size:12px;line-height:1.3;max-width:100%;margin:0}
+.gallery-study .g-contact[data-form-compact=true] .g-feedback-actions{flex-wrap:nowrap;gap:6px}
+.gallery-study .g-contact[data-form-compact=true] .g-feedback-actions button{font-size:12px;padding:6px 9px}
