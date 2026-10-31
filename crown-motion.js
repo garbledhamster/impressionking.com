@@ -137,15 +137,21 @@
     energyLayer.parentNode.insertBefore(energyLayer,svg.querySelector('.crown-backplate'));
     brand.querySelector('.brand-lockup').replaceWith(svg);
     brand.dataset.crownBound='true';
-    brand.setAttribute('role','button');
-    brand.setAttribute('aria-label','Impression King');
-    brand.addEventListener('click',event=>event.preventDefault());
-    brand.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key))event.preventDefault();});
-    brand.addEventListener('keyup',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();brand.click();}});
+    brand.dataset.powerTrigger='';
+    // Retain keyboard behavior in the private historical layouts, which use links.
+    if(brand.tagName!=='BUTTON'){
+      brand.setAttribute('role','button');
+      brand.addEventListener('click',event=>event.preventDefault());
+      brand.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key))event.preventDefault();});
+      brand.addEventListener('keyup',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();brand.click();}});
+    }
     paint();
 
   }
-  document.addEventListener('click',event=>{if(!(event.target instanceof Element))return;const target=event.target;if(!state.awake&&!target.closest('.site-header .brand'))return;if(target.closest('button,a,input,select,textarea,summary,[role=button],[data-active],.g-small-callout'))click();});
+  document.addEventListener('click',event=>{if(!(event.target instanceof Element))return;const target=event.target;if(!state.awake&&!target.closest('[data-power-trigger]'))return;if(target.closest('button,a,input,select,textarea,summary,[role=button],[data-active],.g-small-callout'))click();});
+  // Images keep their existing layout; delegated keys also cover newly rendered poses.
+  document.addEventListener('keydown',event=>{if(event.target instanceof Element&&event.target.matches('.g-character[data-power-trigger]')&&['Enter',' '].includes(event.key))event.preventDefault();});
+  document.addEventListener('keyup',event=>{if(event.target instanceof Element&&event.target.matches('.g-character[data-power-trigger]')&&['Enter',' '].includes(event.key)){event.preventDefault();event.target.click();}});
   document.addEventListener('showcase:render',mount);
   fetch('/assets/brand/logo-horizontal.svg').then(response=>response.text()).then(text=>{
     const svg=new DOMParser().parseFromString(text,'image/svg+xml').documentElement;
