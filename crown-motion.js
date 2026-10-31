@@ -7,9 +7,9 @@
     {at:0, key:'yellow',family:'yellow',tier:1,energy:4, logo:0, electric:0, speed:4.2},
     {at:10,key:'ssj2',  family:'yellow',tier:2,energy:10,logo:1, electric:0, speed:3.2},
     {at:20,key:'ssj3',  family:'yellow',tier:3,energy:20,logo:1.7,electric:1.2,speed:2.5},
-    {at:30,key:'red',   family:'red',tier:1,energy:6, logo:1.7,electric:.7, speed:2.2},
-    {at:40,key:'red2',  family:'red',tier:2,energy:14,logo:2.1,electric:1.2,speed:1.9},
-    {at:50,key:'red3',  family:'red',tier:3,energy:24,logo:2.5,electric:1.7,speed:1.6},
+    {at:30,key:'red',   family:'red',tier:1,energy:6, logo:2.8,electric:.7, speed:2.2},
+    {at:40,key:'red2',  family:'red',tier:2,energy:14,logo:3.2,electric:1.2,speed:1.9},
+    {at:50,key:'red3',  family:'red',tier:3,energy:24,logo:3.6,electric:1.7,speed:1.6},
     {at:60,key:'blue',  family:'blue',tier:1,energy:10,logo:2.2,electric:1.4,speed:1.35},
     {at:70,key:'blue2', family:'blue',tier:2,energy:18,logo:2.6,electric:1.9,speed:1.1},
     {at:80,key:'blue3', family:'blue',tier:3,energy:28,logo:3, electric:2.3,speed:.88},
@@ -66,11 +66,19 @@
     const color=palettes[level.family];
     const accent=state.awake?`hsl(${color.h} ${color.s}% ${color.l}%)`:'#fafafa';
     document.documentElement.style.setProperty('--blue',accent);
+    document.documentElement.dataset.powered=String(state.awake);
+    document.documentElement.dataset.powerFamily=state.awake?level.family:'original';
+    document.documentElement.style.setProperty('--energy-speed',level.speed*(1-between*.12)+'s');
+    document.documentElement.style.setProperty('--action-energy',state.awake?(.18+energy/bolts.length*.22):0);
+
     document.documentElement.style.setProperty('--red',state.awake?`hsl(${color.h} ${color.s}% ${Math.min(95,color.l+7)}%)`:'#ef6269');
     document.documentElement.style.setProperty('--primary-ink','#171717');
     document.documentElement.style.setProperty('--primary-icon-filter','brightness(0)');
     for(const svg of document.querySelectorAll('.crown-svg')) {
+      const previous=svg.dataset.stage,previousFamily=svg.dataset.family,previousColor=svg.style.getPropertyValue('--crown-color-value')||'#fafafa';
       svg.dataset.stage=state.awake?level.key:'original';
+      svg.style.setProperty('--crown-color-value',accent);
+      if(state.awake&&previous!==level.key){svg.style.setProperty('--crown-base-color',previous!=='original'&&previousFamily===level.family?`hsl(${color.h} ${color.s}% ${color.l*.42}%)`:previousColor);const fill=svg.querySelector('.crown-powered');fill.getAnimations().forEach(a=>a.cancel());if(!matchMedia('(prefers-reduced-motion:reduce)').matches)fill.animate([{clipPath:'inset(100% 0 0)'},{clipPath:'inset(0 0 0)'}],{duration:1000,easing:'cubic-bezier(.16,1,.3,1)'});}
       svg.dataset.clicks=state.clicks;
       svg.dataset.family=level.family;svg.dataset.tier=level.tier;
       svg.dataset.awake=String(state.awake);

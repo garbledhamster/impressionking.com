@@ -1,0 +1,69 @@
+/* The gallery is the stage. Contact is a drawer, never a permanent column. */
+.gallery-study .g-workspace{grid-template-columns:minmax(0,1fr);position:relative;isolation:isolate}
+.gallery-study .g-gallery{grid-column:1}
+.gallery-study .g-picker{gap:10px;position:relative;z-index:85;align-items:center}
+.gallery-study .g-picker button{position:relative;display:inline-flex;flex-direction:column;justify-content:center;width:56px;min-width:56px;height:48px;min-height:48px;padding:10px;border:1px solid color-mix(in srgb,var(--blue) 55%,transparent);color:var(--blue);border-radius:var(--card-radius,4px);background:transparent;gap:0}
+.gallery-study .g-picker button[aria-selected=true]{border-color:var(--blue);background:var(--g-surface)}
+.gallery-study .g-picker button>span:not(.g-icon){position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.gallery-study .g-picker .g-icon{width:21px;height:21px}
+.tippy-box[data-theme~=nav]{text-align:center;transform-origin:50% 0}
+.tippy-box[data-animation=nav-pop][data-state=hidden]{opacity:0;transform:translateY(-5px) scale(.7,.8)}
+.tippy-box[data-animation=nav-pop][data-state=visible]{opacity:1;transform:translateY(0) scale(1)}
+.gallery-study .g-nav-button,.gallery-study .g-filters button,.gallery-study .g-trailer-options button{border-color:var(--blue)}
+.gallery-study .g-contact{display:grid;position:absolute;grid-column:auto;grid-row:auto;inset:64px 0 0 auto;width:min(390px,100%);height:auto;padding:20px;z-index:75;opacity:0;visibility:hidden;pointer-events:none;transform:translateX(30px);transition:transform .28s cubic-bezier(.16,1,.3,1),opacity .18s,visibility .28s;border:1px solid var(--blue);background:var(--g-surface)}
+.gallery-study .g-contact.g-open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0)}
+.gallery-study #g-contact-close{display:flex;border:0;width:44px;height:44px}
+.gallery-study .g-contact #g-form{min-height:0}
+/* Categories stay to the left; only the records travel horizontally. */
+.gallery-study .g-media-picker{display:grid;grid-template-columns:126px minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:16px}
+.gallery-study .g-media-head{height:auto;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:7px;min-height:0;padding:4px 0}
+.gallery-study .g-media-head>span{font-size:11px;color:var(--g-muted)}
+.gallery-study .g-filters{display:flex;flex-direction:column;align-items:stretch;max-width:none;min-height:0;gap:4px;overflow-x:hidden;overflow-y:auto;padding-right:8px;scrollbar-width:thin}
+.gallery-study .g-filters button{flex:none;min-height:32px;padding:4px 8px;text-align:left;font-size:11px;line-height:1.3;overflow-wrap:anywhere}
+.gallery-study .g-track-strip{padding:8px 4px 20px;scrollbar-gutter:stable;min-height:0}
+/* Material is changed only after the easter egg is unlocked. */
+.g-material-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+.g-fabric-color{flood-color:var(--blue)}
+html[data-powered=true] .g-character{filter:url(#hoodie-power)}
+.crown-base{fill:var(--crown-base-color,#fafafa)}
+.crown-powered{transition:fill .2s;clip-path:inset(100% 0 0)}
+.crown-svg[data-awake=true] .crown-powered{clip-path:inset(0)}
+.g-primary,.g-text-action{position:relative;isolation:isolate;overflow:visible}
+.g-action-energy{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);overflow:visible;pointer-events:none;opacity:var(--action-energy,0)}
+.g-action-energy path{fill:none;stroke:var(--blue);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:miter;stroke-dasharray:5 20;animation:crown-flow var(--energy-speed,4.2s) linear infinite}
+html:not([data-powered=true]) .g-action-energy,.g-leaving .g-action-energy{display:none}
+/* A short, directional headline reveal follows each moving gallery card. */
+.g-feature-copy h1,.g-about-heading h1,.g-services-heading h1{animation:g-headline-arrive .52s cubic-bezier(.16,1,.3,1) both}
+.g-feature-copy>p:not(.g-eyebrow),.g-feature-copy>.g-primary{animation:g-copy-arrive .38s cubic-bezier(.16,1,.3,1) both;animation-delay:80ms}
+.g-feature-copy>.g-primary{animation-delay:140ms}
+@keyframes g-headline-arrive{from{clip-path:inset(0 100% 0 0);transform:translateX(14px);opacity:.45}to{clip-path:inset(0);transform:translateX(0);opacity:1}}
+@keyframes g-copy-arrive{from{transform:translateX(10px);opacity:.35}to{transform:translateX(0);opacity:1}}
+@media(max-width:700px),(orientation:landscape) and (max-height:600px){
+ .gallery-study .g-workspace{grid-template-columns:minmax(0,1fr);grid-template-rows:52px minmax(0,1fr);gap:8px}
+ .gallery-study .g-picker{grid-column:1;grid-row:1;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:0;justify-content:stretch;min-width:0;padding:0 6px}
+ .gallery-study .g-picker button{width:100%;min-width:0;min-height:44px;height:44px;padding:10px 4px;border-radius:0}
+ .gallery-study .g-gallery{grid-column:1;grid-row:2}
+ .gallery-study .g-media-picker{grid-template-columns:86px minmax(0,1fr);gap:10px}
+ .gallery-study .g-filters{padding-right:5px}
+ .gallery-study .g-filters button{font-size:10px;min-height:32px;padding:4px 6px}
+ .gallery-study .g-workspace.contact-open{position:fixed;top:var(--visible-top,0px);left:var(--visible-left,0px);width:var(--visible-width,100vw);height:var(--visible-height,100dvh);padding:0;gap:0;z-index:80;background:var(--g-canvas);grid-template-rows:56px minmax(0,1fr);overflow:hidden}
+ .gallery-study .contact-open .g-picker{padding-top:env(safe-area-inset-top);align-self:stretch}
+ .gallery-study .contact-open .g-gallery{visibility:hidden}
+ .gallery-study .g-contact{position:relative;grid-column:1;grid-row:2;inset:auto;width:100%;height:100%;max-height:none;min-height:0;border:0;border-top:1px solid var(--blue);padding:14px max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));gap:0;transform:translateX(100%);overflow:hidden}
+ .gallery-study .g-contact.g-open{transform:translateX(0)}
+ .gallery-study .g-contact-top{padding-bottom:12px}
+ .gallery-study .g-contact .g-form-body textarea{height:clamp(96px,calc(var(--contact-height,100dvh) - 164px),176px);min-height:96px}
+}
+@media(prefers-reduced-motion:reduce){
+ .gallery-study .g-contact,.g-action-energy path,.g-feature-copy h1,.g-about-heading h1,.g-services-heading h1,.g-feature-copy>p,.g-feature-copy>.g-primary,.g-entering,.g-leaving{animation:none!important;transition:none!important}
+ .tippy-box[data-animation=nav-pop]{transform:none!important;transition:opacity .1s!important}
+}
+@media(max-width:700px),(orientation:landscape) and (max-height:600px){
+ .gallery-study .g-picker{width:calc(100% + 12px);margin-inline:-6px;padding-inline:0}
+ .gallery-study .contact-open .g-picker{width:100%;margin-inline:0;padding-inline:6px}
+ .gallery-study .contact-open[data-short-contact=true] .g-contact-top p{display:none}
+ .gallery-study .contact-open[data-short-contact=true] .g-contact-top h2{font-size:18px;margin:0}
+ .gallery-study .contact-open[data-short-contact=true] .g-contact-top{padding-bottom:8px}
+ .gallery-study .contact-open[data-short-contact=true] #g-form{padding-top:10px}
+ .gallery-study .contact-open[data-short-contact=true] .g-form-body textarea{height:clamp(64px,calc(var(--contact-height) - 130px),176px);min-height:64px}
+}
