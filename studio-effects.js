@@ -1,7 +1,7 @@
 /* Shared power materials and small, bounded interaction effects. No image variants. */
 (()=>{
  'use strict';
- if(!document.querySelector('link[href*="studio-experience.css"]')){const sheet=document.createElement('link');sheet.addEventListener('load',()=>document.documentElement.dataset.experienceReady='true',{once:true});sheet.rel='stylesheet';sheet.href='/studio-experience.css?v=experience-8';document.head.append(sheet);}
+ if(!document.querySelector('link[href*="studio-experience.css"]')){const sheet=document.createElement('link');sheet.addEventListener('load',()=>document.documentElement.dataset.experienceReady='true',{once:true});sheet.rel='stylesheet';sheet.href='/studio-experience.css?v=energy-9';document.head.append(sheet);}
  // Chroma keys the saturated orange fabric; neutral equipment and skin stay original.
  // Both channel tests must match. Source alpha clips the result at the real cutout edge.
  const filters=document.createElementNS('http://www.w3.org/2000/svg','svg');
@@ -20,8 +20,37 @@
  <feComposite in="untouched" in2="newFabric" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
  </filter></defs>`;
  document.body.prepend(filters);
- const energy=`<svg class="g-action-energy" viewBox="0 0 160 48" preserveAspectRatio="none" aria-hidden="true"><path pathLength="100" d="M-3 16 -5 10 2 6 -2 1 15 -2 21 2 35 -1 M125 -2 132 1 145 -2 159 1 156 7 164 11 M164 30 158 34 163 42 149 47 139 44 126 49 M34 49 25 45 13 49 2 45 6 38 -4 34"/></svg>`;
- function decorate(){document.querySelectorAll('.g-primary,.g-text-action').forEach(button=>{if(!button.querySelector('.g-action-energy'))button.insertAdjacentHTML('beforeend',energy);});}
+ const observed=new Set();
+ function drawEnergy(button){
+  const svg=button.querySelector('.g-action-energy');if(!svg)return;
+  const {width,height}=button.getBoundingClientRect();if(width<1||height<1)return;
+  svg.setAttribute('viewBox',`0 0 ${width} ${height}`);
+  const outset=4,w=width+outset*2,h=height+outset*2,spike=Math.min(11,height*.24),points=[];let edgeIndex=0;
+  // Each edge has the same sharp, backtracking branches as the crown, in actual pixels.
+  function edge(length,map){
+   const count=Math.max(1,Math.round(length/36)),step=length/count;
+   for(let i=0;i<count;i++){
+    const start=i*step;
+    for(const [along,away]of[[0,0],[.22,1],[.12,spike*.7],[.48,spike*.2],[.34,spike],[.78,0],[1,0]])points.push(map(start+along*step,away*(.7+((i*7+edgeIndex*3)%5)*.075)));
+   }
+   edgeIndex++;
+  }
+  edge(w,(x,n)=>[x-outset,-outset-n]);
+  edge(h,(y,n)=>[width+outset+n,y-outset]);
+  edge(w,(x,n)=>[width+outset-x,height+outset+n]);
+  edge(h,(y,n)=>[-outset-n,height+outset-y]);
+  const d=points.map(([x,y],i)=>(i?'L':'M')+x.toFixed(2)+' '+y.toFixed(2)).join(' ')+' Z';
+  svg.querySelectorAll('path').forEach(path=>path.setAttribute('d',d));
+ }
+ const resizeEnergy=new ResizeObserver(entries=>entries.forEach(entry=>drawEnergy(entry.target)));
+ function decorate(){
+  for(const button of observed)if(!button.isConnected){resizeEnergy.unobserve(button);observed.delete(button);}
+  document.querySelectorAll('.g-primary,.g-text-action').forEach(button=>{
+   if(button.querySelector('.g-action-energy'))return;
+   button.insertAdjacentHTML('beforeend','<svg class="g-action-energy" aria-hidden="true"><path class="g-action-trail" pathLength="100"/><path class="g-action-bolt" pathLength="100"/><path class="g-action-spark" pathLength="100"/></svg>');
+   observed.add(button);resizeEnergy.observe(button);drawEnergy(button);
+  });
+ }
  function navigationHelp(){
   if(!window.tippy)return;
   document.querySelectorAll('.g-picker [data-section]').forEach(button=>{

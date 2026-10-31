@@ -29,8 +29,13 @@ html[data-powered=true] .g-character{filter:url(#hoodie-power)}
 .crown-powered{transition:fill .2s;clip-path:inset(100% 0 0)}
 .crown-svg[data-awake=true] .crown-powered{clip-path:inset(0)}
 .g-primary,.g-text-action{position:relative;isolation:isolate;overflow:visible}
-.g-action-energy{position:absolute;inset:-4px;width:calc(100% + 8px);height:calc(100% + 8px);overflow:visible;pointer-events:none;opacity:var(--action-energy,0)}
-.g-action-energy path{fill:none;stroke:var(--blue);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:miter;stroke-dasharray:5 20;animation:crown-flow var(--energy-speed,4.2s) linear infinite}
+.g-action-energy{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;opacity:var(--action-energy,0)}
+.g-action-energy path{fill:none;stroke:var(--blue);vector-effect:non-scaling-stroke;stroke-linejoin:miter;stroke-linecap:butt}
+.g-action-bolt{stroke-width:var(--action-weight,1.3)}
+.g-action-trail{stroke-width:calc(3px + var(--action-glow,0)*1.2px);filter:blur(calc(3px + var(--action-glow,0)*1.2px));opacity:clamp(0,var(--action-glow,0)*.5,.85);animation:g-action-afterglow calc(var(--energy-speed,4.2s)*1.4) ease-in-out infinite}
+.g-action-spark{stroke-width:calc(var(--action-weight,1.3)*1.4);stroke-dasharray:5 20;animation:crown-flow var(--energy-speed,4.2s) linear infinite}
+@keyframes g-action-afterglow{50%{opacity:clamp(0,var(--action-glow,0)*.7,1)}}
+.gallery-study .g-form-actions{padding-inline:20px;padding-bottom:12px}
 html:not([data-powered=true]) .g-action-energy,.g-leaving .g-action-energy{display:none}
 /* A short, directional headline reveal follows each moving gallery card. */
 .g-feature-copy h1,.g-about-heading h1,.g-services-heading h1{animation:g-headline-arrive .52s cubic-bezier(.16,1,.3,1) both}

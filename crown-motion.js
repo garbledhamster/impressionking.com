@@ -69,7 +69,9 @@
     document.documentElement.dataset.powered=String(state.awake);
     document.documentElement.dataset.powerFamily=state.awake?level.family:'original';
     document.documentElement.style.setProperty('--energy-speed',level.speed*(1-between*.12)+'s');
-    document.documentElement.style.setProperty('--action-energy',state.awake?(.18+energy/bolts.length*.22):0);
+    document.documentElement.style.setProperty('--action-energy',state.awake?(.78+energy/bolts.length*.22):0);
+    document.documentElement.style.setProperty('--action-weight',1.1+level.tier*.3+between*.15);
+    document.documentElement.style.setProperty('--action-glow',level.electric+level.logo*.45);
 
     document.documentElement.style.setProperty('--red',state.awake?`hsl(${color.h} ${color.s}% ${Math.min(95,color.l+7)}%)`:'#ef6269');
     document.documentElement.style.setProperty('--primary-ink','#171717');
