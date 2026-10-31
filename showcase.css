@@ -363,3 +363,40 @@ body[data-layout=C] .g-about-copy p{font-size:14px;line-height:1.6;margin-bottom
  .g-player-tools .g-bars{height:14px}
  .g-player-tools #g-play-status{font-size:10px;line-height:1.3;min-height:13px;margin:2px 0}
 }
+
+/* Contact keeps full-size fields; the mobile form scrolls inside the visible viewport. */
+.gallery-study .g-contact{border-radius:0;padding:20px;gap:20px}
+.gallery-study .g-contact-top{gap:16px;align-items:center;padding-bottom:16px;border-bottom:1px solid var(--g-edge)}
+.gallery-study .g-contact-top h2{margin:0 0 6px;font-size:22px;outline:none}
+.gallery-study .g-form-body{gap:16px;padding:2px 8px 2px 2px;scroll-padding-block:12px}
+.gallery-study .g-identify{gap:16px}
+.gallery-study .g-form-body label{gap:8px;font-size:13px}
+.gallery-study .g-form-body :is(input,select,textarea){border-radius:0;min-height:46px;padding:12px;line-height:1.5}
+.gallery-study .g-form-body textarea{min-height:160px}
+.gallery-study .g-context{min-height:0;padding:10px 0;overflow-wrap:anywhere}
+.gallery-study .g-message-label{min-height:190px}
+.gallery-study .g-form-actions{padding-top:16px;border-top:1px solid var(--g-edge);gap:8px}
+.gallery-study .g-form-actions .g-primary{border-radius:0;min-height:46px}
+.gallery-study .g-copy{min-height:44px;padding:8px 0}
+@media(max-width:700px),(orientation:landscape) and (max-height:600px){
+ .gallery-study .g-contact{position:fixed;inset:auto;top:var(--contact-top,0px);left:var(--contact-left,0px);width:var(--contact-width,100vw);height:var(--contact-height,100dvh);max-height:none;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:0;padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));border:0;box-shadow:none;overflow:hidden;overscroll-behavior:contain}
+ .gallery-study .g-contact.g-open{display:grid}
+ .gallery-study .g-contact-top{padding-bottom:14px;margin-bottom:0}
+ .gallery-study .g-contact-top p{font-size:12px}
+ .gallery-study #g-contact-close{display:flex;width:44px;height:44px;min-height:44px;border:0;border-radius:0}
+ .gallery-study .g-contact #g-form{display:block;min-height:0;overflow:auto;overscroll-behavior:contain;scroll-padding:12px;padding:16px 8px 8px 0;-webkit-overflow-scrolling:touch}
+ .gallery-study .g-contact .g-form-body{display:flex;flex-direction:column;height:auto;min-height:0;overflow:visible;gap:18px;padding:0}
+ .gallery-study .g-contact .g-identify{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;flex:none}
+ .gallery-study .g-contact .g-form-body>label{grid-column:auto;grid-row:auto;flex:none;min-height:0}
+ .gallery-study .g-contact .g-context{display:block;padding:0;font-size:12px;line-height:1.5;flex:none}
+ .gallery-study .g-contact .g-message-label{display:flex;flex:none;min-height:0}
+ .gallery-study .g-contact .g-form-body textarea{flex:none;height:clamp(96px,calc(var(--contact-height,100dvh) - 164px),176px);min-height:96px;resize:none;max-height:none}
+ .gallery-study .g-contact .g-form-actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:20px}
+ .gallery-study .g-contact .g-form-actions .g-primary{grid-column:1;width:100%;min-height:46px}
+ .gallery-study .g-contact .g-copy{grid-column:1;min-height:44px;justify-self:start}
+ .gallery-study .g-contact #g-form-note{grid-column:1;font-size:12px;line-height:1.5}
+}
+/* Metadata and labels retain their height instead of colliding in a short sidebar. */
+.gallery-study .g-form-body>.g-identify,.gallery-study .g-form-body>.g-context,.gallery-study .g-form-body>label:not(.g-message-label){flex-shrink:0}
+.gallery-study .g-form-body>.g-message-label{flex:1 0 190px}
+@media(max-width:700px),(orientation:landscape) and (max-height:600px){.gallery-study .g-contact .g-form-body>.g-message-label{flex:none}}
