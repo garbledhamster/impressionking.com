@@ -1,7 +1,7 @@
 /* Shared power materials and small, bounded interaction effects. No image variants. */
 (()=>{
  'use strict';
- if(!document.querySelector('link[href*="studio-experience.css"]')){const sheet=document.createElement('link');sheet.addEventListener('load',()=>document.documentElement.dataset.experienceReady='true',{once:true});sheet.rel='stylesheet';sheet.href='/studio-experience.css?v=wave-11';document.head.append(sheet);}
+ if(!document.querySelector('link[href*="studio-experience.css"]')){const sheet=document.createElement('link');sheet.addEventListener('load',()=>document.documentElement.dataset.experienceReady='true',{once:true});sheet.rel='stylesheet';sheet.href='/studio-experience.css?v=nav-logo-12';document.head.append(sheet);}
  // Chroma keys the saturated orange fabric; neutral equipment and skin stay original.
  // Both channel tests must match. Source alpha clips the result at the real cutout edge.
  const filters=document.createElementNS('http://www.w3.org/2000/svg','svg');
@@ -80,13 +80,14 @@
   if(!window.tippy)return;
   document.querySelectorAll('.g-picker [data-section]').forEach(button=>{
    if(button.dataset.navTip)return;button.dataset.navTip='true';
-   const tip=tippy(button,{content:button.getAttribute('aria-label'),theme:'joe nav',allowHTML:false,placement:'bottom',appendTo:()=>document.body,popperOptions:{strategy:'fixed'},offset:[0,8],animation:'nav-pop',duration:[180,100],delay:[80,0],trigger:'mouseenter focus',touch:false,hideOnClick:true,aria:{content:'describedby',expanded:false}});
+   const tip=tippy(button,{onShow(){return button.getAttribute('aria-selected')!=='true';},content:button.getAttribute('aria-label'),theme:'joe nav',allowHTML:false,placement:'bottom',appendTo:()=>document.body,popperOptions:{strategy:'fixed'},offset:[0,8],animation:'nav-pop',duration:[180,100],delay:[80,0],trigger:'mouseenter focus',touch:false,hideOnClick:true,aria:{content:'describedby',expanded:false}});
    let timer=null,held=false;
    button.addEventListener('pointerdown',event=>{if(event.pointerType!=='touch')return;held=false;timer=setTimeout(()=>{held=true;tip.show();},450);});
    for(const event of['pointerup','pointercancel','pointerleave'])button.addEventListener(event,()=>clearTimeout(timer));
    button.addEventListener('click',event=>{if(!held)return;held=false;event.preventDefault();event.stopImmediatePropagation();tip.show();setTimeout(()=>tip.hide(),1600);},true);
   });
  }
+ for(const[id,label]of Object.entries({'g-prev':'Previous section','g-next':'Next section'})){const button=document.getElementById(id);if(window.tippy&&button&&!button._tippy)tippy(button,{content:label,theme:'joe',allowHTML:false,appendTo:()=>document.body,trigger:'mouseenter focus',touch:['hold',450],delay:[250,0],duration:[120,80]});}
  decorate();navigationHelp();if(document.querySelector('link[href*="studio-experience.css"]')?.sheet)document.documentElement.dataset.experienceReady='true';
  document.addEventListener('creator:card',decorate);
  document.addEventListener('showcase:render',()=>{decorate();navigationHelp();});

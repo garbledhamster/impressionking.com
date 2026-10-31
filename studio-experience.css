@@ -9,18 +9,11 @@
 .tippy-box[data-theme~=nav]{text-align:center;transform-origin:50% 0}
 .tippy-box[data-animation=nav-pop][data-state=hidden]{opacity:0;transform:translateY(-5px) scale(.7,.8)}
 .tippy-box[data-animation=nav-pop][data-state=visible]{opacity:1;transform:translateY(0) scale(1)}
-.gallery-study .g-nav-button,.gallery-study .g-filters button,.gallery-study .g-trailer-options button{border-color:var(--blue)}
+.gallery-study .g-nav-button,.gallery-study .g-trailer-options button{border-color:var(--blue)}
 .gallery-study .g-contact{display:grid;position:absolute;grid-column:auto;grid-row:auto;inset:64px 0 0 auto;width:min(390px,100%);height:auto;padding:20px;z-index:75;opacity:0;visibility:hidden;pointer-events:none;transform:translateX(30px);transition:transform .28s cubic-bezier(.16,1,.3,1),opacity .18s,visibility .28s;border:1px solid var(--blue);background:var(--g-surface)}
 .gallery-study .g-contact.g-open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0)}
 .gallery-study #g-contact-close{display:flex;border:0;width:44px;height:44px}
 .gallery-study .g-contact #g-form{min-height:0}
-/* Categories stay to the left; only the records travel horizontally. */
-.gallery-study .g-media-picker{display:grid;grid-template-columns:126px minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:16px}
-.gallery-study .g-media-head{height:auto;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:7px;min-height:0;padding:4px 0}
-.gallery-study .g-media-head>span{font-size:11px;color:var(--g-muted)}
-.gallery-study .g-filters{display:flex;flex-direction:column;align-items:stretch;max-width:none;min-height:0;gap:4px;overflow-x:hidden;overflow-y:auto;padding-right:8px;scrollbar-width:thin}
-.gallery-study .g-filters button{flex:none;min-height:32px;padding:4px 8px;text-align:left;font-size:11px;line-height:1.3;overflow-wrap:anywhere}
-.gallery-study .g-track-strip{padding:8px 4px 20px;scrollbar-gutter:stable;min-height:0}
 /* Material is changed only after the easter egg is unlocked. */
 .g-material-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
 .g-fabric-color{flood-color:var(--blue)}
@@ -52,9 +45,6 @@ html:not([data-powered=true]) .g-action-energy,.g-leaving .g-action-energy{displ
  .gallery-study .g-picker{grid-column:1;grid-row:1;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:0;justify-content:stretch;min-width:0;padding:0 6px}
  .gallery-study .g-picker button{width:100%;min-width:0;min-height:44px;height:44px;padding:10px 4px;border-radius:0}
  .gallery-study .g-gallery{grid-column:1;grid-row:2}
- .gallery-study .g-media-picker{grid-template-columns:86px minmax(0,1fr);gap:10px}
- .gallery-study .g-filters{padding-right:5px}
- .gallery-study .g-filters button{font-size:10px;min-height:32px;padding:4px 6px}
  .gallery-study .g-workspace.contact-open{position:fixed;top:var(--visible-top,0px);left:var(--visible-left,0px);width:var(--visible-width,100vw);height:var(--visible-height,100dvh);padding:0;gap:0;z-index:80;background:var(--g-canvas);grid-template-rows:56px minmax(0,1fr);overflow:hidden}
  .gallery-study .contact-open .g-picker{padding-top:env(safe-area-inset-top);align-self:stretch}
  .gallery-study .contact-open .g-gallery{visibility:hidden}
@@ -76,3 +66,44 @@ html:not([data-powered=true]) .g-action-energy,.g-leaving .g-action-energy{displ
  .gallery-study .contact-open[data-short-contact=true] #g-form{padding-top:10px}
  .gallery-study .contact-open[data-short-contact=true] .g-form-body textarea{height:clamp(64px,calc(var(--contact-height) - 130px),176px);min-height:64px}
 }
+/* The selected page is named inside its button; all button centers stay aligned. */
+.gallery-study .g-picker button[aria-selected=true]{height:66px;min-height:66px;padding:7px 4px;gap:4px}
+.gallery-study .g-picker button[aria-selected=true]>.g-icon{width:22px;height:23px}
+.gallery-study .g-picker button[aria-selected=true]>span:not(.g-icon){position:static;clip-path:none;width:auto;height:auto;overflow:visible;white-space:nowrap;font-size:11px;line-height:1.2;color:var(--g-text);animation:g-active-label .18s cubic-bezier(.16,1,.3,1) both}
+@keyframes g-active-label{from{opacity:0;transform:translateY(-3px) scaleY(.7)}to{opacity:1;transform:translateY(0) scaleY(1)}}
+/* Reserve clearance for the main logo's tallest tier without shifting the wordmark. */
+.crown-figure{transform-box:view-box;transform-origin:128px 128px;transform:scale(var(--crown-scale,1));transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.gallery-study .g-shell{grid-template-rows:102px minmax(0,1fr)}
+.gallery-study .g-header.site-header{height:102px}
+.gallery-study .g-header .brand{gap:24px}
+@media(max-width:700px){
+ .gallery-study .g-shell{grid-template-rows:76px minmax(0,1fr)}
+ .gallery-study .g-header.site-header{height:76px}
+ .gallery-study .g-header .brand{gap:18px}
+ .gallery-study .g-picker button[aria-selected=true]{height:56px;min-height:56px;padding:6px 2px;gap:3px}
+ .gallery-study .g-picker button[aria-selected=true]>span:not(.g-icon){font-size:10px}
+}
+@media(orientation:landscape) and (max-height:600px){
+ .gallery-study .g-shell{grid-template-rows:72px minmax(0,1fr)}
+ .gallery-study .g-header.site-header{height:72px}
+ .gallery-study .g-picker button[aria-selected=true]{height:56px;min-height:56px;padding:6px 2px;gap:3px}
+ .gallery-study .g-picker button[aria-selected=true]>span:not(.g-icon){font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){.crown-figure{transition:none}.gallery-study .g-picker button[aria-selected=true]>span:not(.g-icon){animation:none}}
+/* The sample carousel has only records, with directional glow rails instead of a scrollbar. */
+.gallery-study .g-media-picker{display:block;min-height:0;height:100%}
+.g-sample-rail{position:relative;height:100%;min-height:0;padding-inline:44px}
+.gallery-study .g-track-strip{height:100%;scrollbar-width:none;padding-bottom:12px;scrollbar-gutter:auto}
+.gallery-study .g-track-strip::-webkit-scrollbar{display:none;width:0;height:0}
+.g-scroll-edge{position:absolute;top:0;bottom:0;z-index:3;width:44px;min-width:44px;display:flex;align-items:center;justify-content:center;padding:0;border:0;background:transparent;color:var(--blue);cursor:pointer;transition:opacity .18s}
+.g-scroll-back{left:0}.g-scroll-next{right:0}
+.g-scroll-edge::before{content:'';position:absolute;top:5px;bottom:5px;left:21px;width:2px;background:linear-gradient(transparent,var(--blue) 18%,var(--blue) 82%,transparent);box-shadow:0 0 12px var(--blue);opacity:.6}
+.g-scroll-edge .g-icon{position:relative;z-index:1;width:21px;height:21px;background:currentColor;box-shadow:0 0 12px var(--g-canvas)}
+.g-scroll-edge:disabled{opacity:.17;cursor:default}
+.g-sample-rail[data-overflow=false] .g-scroll-edge{visibility:hidden}
+.g-sample-rail[data-overflow=false] .g-track-strip{justify-content:center}
+.crown-figure{transform:translateY(18px) scale(var(--crown-scale,1))}
+@media(max-width:700px){.gallery-study .g-header .brand{margin-left:8px}}
+@media(prefers-reduced-motion:reduce){.g-scroll-edge{transition:none}}
+/* Let the record strip overflow inside the card instead of sizing the card to its contents. */
+.gallery-study #g-samples,.gallery-study .g-media-picker,.g-sample-rail{min-width:0;max-width:100%}

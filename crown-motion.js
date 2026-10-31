@@ -51,6 +51,16 @@
     'M20 212 -18 224 4 240 -12 258',
     'M232 148 274 138 252 158 282 174'
   ];
+  // Main-logo tiers repeat for each color. Button-wave timing remains independent.
+  const crownTiers=[
+    {energy:4,logo:0,electric:0,speed:4.2,scale:.92,reach:1.05},
+    {energy:14,logo:1,electric:0,speed:3.2,scale:1.02,reach:1.18},
+    {energy:32,logo:1.7,electric:1.2,speed:2.5,scale:1.12,reach:1.35}
+  ];
+  function extendBolt(path,reach){
+    const extend=n=>n<16?16+(n-16)*reach:n>240?240+(n-240)*reach:n;
+    return path.replace(/(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)/g,(_,x,y)=>extend(Number(x)).toFixed(2)+' '+extend(Number(y)).toFixed(2));
+  }
   const state = {clicks:0, awake:false, settled:false};
   let source;
   if(!document.querySelector('link[href*="/crown-motion.css"]')){const sheet=document.createElement('link');sheet.rel='stylesheet';sheet.href='/crown-motion.css';document.head.append(sheet);}
@@ -63,6 +73,11 @@
     const between=next?(state.clicks-level.at)/(next.at-level.at):1;
     const endEnergy=next?.family===level.family?next.energy:Math.min(bolts.length,level.energy+4);
     const energy=level.energy+(endEnergy-level.energy)*between;
+    const profile=crownTiers[level.tier-1],following=crownTiers[Math.min(2,level.tier)];
+    const progress=level.key==='yellow'?Math.max(0,(state.clicks-1)/9):between;
+    const blend=key=>profile[key]+(following[key]-profile[key])*progress;
+    const crownEnergy=blend('energy'),crownSpeed=blend('speed'),crownScale=state.awake?blend('scale'):1,crownReach=state.awake?blend('reach'):1;
+
     const color=palettes[level.family];
     const accent=state.awake?`hsl(${color.h} ${color.s}% ${color.l}%)`:'#fafafa';
     document.documentElement.style.setProperty('--blue',accent);
@@ -90,13 +105,15 @@
       svg.style.setProperty('--crown-s',color.s+'%');
       svg.style.setProperty('--crown-l',color.l+'%');
       svg.style.setProperty('--crown-weight',1.25+level.tier*.35+between*.25);
-      svg.style.setProperty('--crown-logo-glow',level.logo);
-      svg.style.setProperty('--crown-electric-glow',level.electric);
-      svg.style.setProperty('--crown-speed',level.speed*(1-between*.12)+'s');
-      svg.querySelectorAll('.crown-arc').forEach((arc,i)=>arc.style.setProperty('--presence',Math.max(0,Math.min(1,energy-i))));
+      svg.style.setProperty('--crown-logo-glow',profile.logo+(level.family!=='yellow'?(level.family==='red' ? .9 : .6):0));
+      svg.style.setProperty('--crown-electric-glow',profile.electric);
+      svg.style.setProperty('--crown-scale',crownScale);
+      svg.dataset.reach=crownReach;
+      svg.style.setProperty('--crown-speed',crownSpeed+'s');
+      svg.querySelectorAll('.crown-arc').forEach((arc,i)=>{arc.style.setProperty('--presence',Math.max(0,Math.min(1,crownEnergy-i)));arc.querySelectorAll('path').forEach(path=>path.setAttribute('d',extendBolt(bolts[i],crownReach)));});
       svg.querySelectorAll('.crown-bolt,.crown-bolt-trail').forEach((path,i)=>{
         i=Math.floor(i/2);
-        path.style.strokeDashoffset=100*(1-Math.max(0,Math.min(1,energy-i)));
+        path.style.strokeDashoffset=100*(1-Math.max(0,Math.min(1,crownEnergy-i)));
       });
     }
   }
@@ -114,7 +131,7 @@
     svg.setAttribute('class','brand-lockup crown-svg');
     svg.setAttribute('aria-hidden','true');
     svg.dataset.restored=String(state.settled);
-    svg.innerHTML=`<g><g class="crown-logo-echo">${source.mark}</g><rect class="crown-backplate" x="16" y="16" width="224" height="224"/><g class="crown-base">${source.mark}</g><g class="crown-powered">${source.mark}</g><g class="crown-energy">${bolts.map(d=>`<g class="crown-arc"><path class="crown-bolt-trail" pathLength="100" d="${d}"/><path class="crown-bolt" pathLength="100" d="${d}"/><path class="crown-spark" pathLength="100" d="${d}"/></g>`).join('')}</g></g>`;
+    svg.innerHTML=`<g class="crown-figure"><g class="crown-logo-echo">${source.mark}</g><rect class="crown-backplate" x="16" y="16" width="224" height="224"/><g class="crown-base">${source.mark}</g><g class="crown-powered">${source.mark}</g><g class="crown-energy">${bolts.map(d=>`<g class="crown-arc"><path class="crown-bolt-trail" pathLength="100" d="${d}"/><path class="crown-bolt" pathLength="100" d="${d}"/><path class="crown-spark" pathLength="100" d="${d}"/></g>`).join('')}</g></g>`;
     // Energy stays behind the mark so dense silver trails cannot fill its cutouts.
     const energyLayer=svg.querySelector('.crown-energy');
     energyLayer.parentNode.insertBefore(energyLayer,svg.querySelector('.crown-backplate'));
