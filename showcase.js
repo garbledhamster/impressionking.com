@@ -43,7 +43,7 @@
  }
  function card(){
   if(state.section==='welcome')return `<article class="g-card g-feature g-welcome" data-active="true"><div class="g-callout"><div class="g-feature-copy"><p class="g-eyebrow">Jacob Williams · Impression King</p><h1>Voices. Characters. Beats.</h1><p>Hear Jacob’s impressions, explore his music, and tell him about your next project.</p><button class="g-primary" type="button" data-goto="voices">Hear the voices ${icon('arrow-right')}</button></div>${image('welcome')}</div></article>`;
-  if(state.section==='services')return `<article class="g-card g-services" data-active="true"><div class="g-services-heading"><h1>Work with Jacob.</h1><p>Choose the part of your project you want to discuss.</p></div><div class="g-service-list">${['voices','beats','trailers'].map((s,i)=>`<section class="g-small-callout ${i%2?'g-reverse':''}">${image(s)}<div><h2>${titles[s]==='Voices'?'Voice work':titles[s]==='Beats'?'Music & beats':'Trailer voiceovers'}</h2><p>${s==='voices'?'Characters, greetings and voiceovers.':s==='beats'?'Beats, remixes and instrumentals.':'A voice for your next trailer.'}</p><button class="g-text-action" type="button" data-request="${s}">${copy[s][2]} ${icon('arrow-right')}</button></div></section>`).join('')}</div></article>`;
+  if(state.section==='services'&&window.CreatorServices)return window.CreatorServices.renderCard();
   if(state.section==='about')return `<article class="g-card g-about" data-active="true"><div class="g-about-image">${image('about')}</div><div class="g-about-copy"><div class="g-about-heading"><h1>Jacob Williams.</h1><p class="g-handle">Impression King</p></div><p class="g-bio">${bio}</p><div class="g-about-actions"><button class="g-primary" type="button" data-request="about">Talk to Jacob ${icon('arrow-right')}</button><a href="https://www.tiktok.com/@impressionking30" target="_blank" rel="noopener">TikTok ${icon('arrow-top-right-on-square')}</a></div></div></article>`;
   const [title,description,cta]=copy[state.section];
   return `<article class="g-card g-feature" data-active="true"><div class="g-callout"><div class="g-feature-copy"><h1>${title}</h1><p>${description}</p><button class="g-primary" type="button" data-request="${state.section}">${cta} ${icon('arrow-right')}</button></div>${image(state.section)}</div>${state.section==='trailers'?`<div class="g-trailer-options" aria-label="Trailer request types">${['Game trailer','Channel intro','Short film'].map(t=>`<button type="button" data-trailer="${t}">${t} ${icon('arrow-right')}</button>`).join('')}</div>`:`<div id="g-samples">${samples()}</div>`}</article>`;
@@ -93,12 +93,14 @@
   if(reveal){cancelAnimationFrame(contactFrame);contactFrame=requestAnimationFrame(revealContactField);}
  }
  function showContact(focusHeading=true){
+  if(window.CreatorServices){if(state.contact)return;state.contact=true;stopPlayer();updateNavigation();window.CreatorServices.openContact({topic:state.service,onClose(){state.contact=false;document.querySelector('.g-header').inert=false;updateNavigation();}});return;}
   if(state.contact)return;contactOpener=document.activeElement;window.CreatorPlayer.close();state.contact=true;
   document.querySelector('.g-workspace').classList.add('contact-open');contact.hidden=false;contact.getBoundingClientRect();contact.classList.add('g-open');contact.inert=false;contact.setAttribute('aria-hidden','false');
   document.querySelector('.g-contact-open').setAttribute('aria-expanded','true');document.querySelector('.g-gallery').inert=true;document.querySelector('.g-header').inert=compact.matches;
   fitContact();updateNavigation();if(focusHeading){contact.getBoundingClientRect();Promise.allSettled(contact.getAnimations().map(animation=>animation.finished)).then(()=>{if(state.contact&&!contact.contains(document.activeElement))(contact.dataset.submitFeedback==='true'?contact.querySelector('#g-submit-feedback'):contact.querySelector('h2')).focus({preventScroll:true});});}
  }
  function hideContact(restoreFocus=true){
+  if(window.CreatorServices?.isContactOpen()){window.CreatorServices.closeContact();return;}
   state.contact=false;document.querySelector('.g-workspace').classList.remove('contact-open');contact.classList.remove('g-open');contact.inert=true;contact.setAttribute('aria-hidden','true');document.querySelector('.g-gallery').inert=false;document.querySelector('.g-header').inert=false;
   document.querySelector('.g-contact-open').setAttribute('aria-expanded','false');updateNavigation();contact.getBoundingClientRect();Promise.allSettled(contact.getAnimations().map(animation=>animation.finished)).then(()=>{if(!state.contact)contact.hidden=true;});
   if(restoreFocus){document.activeElement?.blur();const target=contactOpener?.isConnected?contactOpener:document.querySelector('.g-contact-open');target.focus({preventScroll:true});}
@@ -106,7 +108,7 @@
  form.addEventListener('focusin',()=>fitContact(true));
 
  function setService(service){if(service!==state.service){state.selected=null;state.context='';}state.service=service;}
- function request(section,context){setService(serviceNames[section]);if(context!==undefined)state.context=context;syncContext();showContact();}
+ function request(section,context){setService(serviceNames[section]);if(context!==undefined)state.context=context;syncContext();if(window.CreatorServices&&['voices','beats','trailers'].includes(section)){const project=section==='trailers'?({'Game trailer':'Game trailer','Channel intro':'Channel promo','Short film':'Film trailer'}[context]):undefined;window.CreatorServices.selectService(section,state.context,project);navigate('services');return;}showContact();}
  function chooseVideo(id){
   const video=state.videos.find(v=>v.id===id);if(!video)return;
   state.selected=id;state.context=(video.character||video.title)+(video.franchise?' · '+video.franchise:'');state.service=serviceNames[state.section];syncContext();
@@ -148,6 +150,7 @@
   state.playing=e.detail.playing;
   viewport.querySelectorAll('[data-video]').forEach(button=>{const active=button.dataset.video===e.detail.id,playing=active&&e.detail.playing;button.dataset.playing=String(playing);button.setAttribute('aria-pressed',String(active));button.querySelector('.g-record-play').innerHTML=icon(playing?'stop':'play');button.setAttribute('aria-label',(playing?'Stop ':'Play ')+(state.videos.find(v=>v.id===button.dataset.video)?.title||'sample'));});
  });
+ window.CreatorServices?.init();
  if(params.get('section')==='contact')showContact();
- window.ImpressionKing={getState:()=>({...state}),getDraft:mail,closeContact:hideContact,revealContactField,validateContact,focusContactField:name=>setContactField(name,true)};
+ window.ImpressionKing={getState:()=>({...state}),getDraft:()=>window.CreatorServices?window.CreatorServices.getDraft():mail(),closeContact:hideContact,revealContactField,validateContact,focusContactField:name=>setContactField(name,true)};
 })();

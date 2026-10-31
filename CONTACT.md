@@ -1,32 +1,11 @@
-# Contact delivery
+# Contact and service requests
 
-The form submits to Formspree with `fetch` and handles the result inside the Contact drawer. It does not navigate, open a mail app or open another tab.
+The selected E1 Services page collects voiceover, voice and music requests in an in-memory cart. Each item retains its direction, project type and optional sample reference. Visitors can update, remove or clear items, then open Cart or Contact to enter their name, email and project details.
 
-## Connect it
+The current action is **Preview request**, which renders a message on the site. It sends nothing, books nothing and takes no payment. Reload clears cart and contact drafts. The content focuses on commissioning Jacob’s creative work.
 
-Create a Formspree form with notifications addressed to **jacob@impressionking.com**. Finish the recipient verification/configuration in Formspree. Copy the public form ID from its endpoint, for example the `abcdefgh` in `https://formspree.io/f/abcdefgh`.
+`services-model.js` owns service options and cart snapshots. `services.js` owns the builder and combined contact panel. The gallery delegates Services rendering and Contact opening through `CreatorServices`.
 
-Set that value in `contact-config.js`:
+The older Formspree preparation in `contact-config.js` and `contact-submit.js` remains a guarded fallback in source. The new panel does not call it, even when its public form ID is populated. Supplying an ID does not activate the E1 request preview. An ordering/delivery provider and commercial terms must be selected separately before connecting real messages or payments.
 
-```js
-window.ImpressionKingContact=Object.freeze({formId:'abcdefgh'});
-```
-
-Deploy the changed configuration. This ID is public. Do not put an account API key or secret in the website. Make sure the form's spam/captcha settings support AJAX and allow the site's domain. The integration includes the `_gotcha` honeypot.
-
-Until the ID is configured, Send shows an honest “Not connected yet” result and makes no provider request. Visitors can return to the form and copy their draft.
-
-## Behavior
-
-- Topics cover hiring, voice work, beats, trailers, creator collaboration and saying hi. A chosen sample accompanies the message.
-- A request sends the name, reply email (`email`), topic (`service`), message, sample and subject. Formspree controls the actual recipient.
-- Sending disables repeat submissions. A successful provider acknowledgment shows “Message sent.” It does not prove inbox delivery or that Jacob read it.
-- Validation, rate limits, offline/network failures and a 20-second timeout show local feedback. Drafts remain in memory. There are no automatic retries.
-- Returning from a successful result leaves the text available; an unchanged already-accepted message is not submitted a second time. Refresh clears this in-memory guard and draft.
-- Form, keyboard and feedback layouts keep the site's drawer, typography, purple/Saiyan accents and reduced-motion behavior.
-
-## Verification
-
-Run `node tests/contact-submit.browser.cjs` with the local static preview running. `SITE_URL` can select another preview or the public site. The test intercepts Formspree requests and supplies a test-only configuration: it sends no real messages. It covers missing configuration, success, field rejection, rate limits, network failure, duplicate clicks and no navigation/popups. The active configured endpoint still needs one supervised end-to-end delivery check after setup.
-
-References: [Formspree AJAX submission](https://formspree.io/blog/formspree-ajax/), [Reply-To field](https://help.formspree.io/articles/building-your-form/email-reply-to-address), [Honeypot](https://help.formspree.io/articles/building-your-form/honeypot-spam-filtering).
+Checks: `node --test tests/services-model.test.cjs` and `SITE_URL=http://127.0.0.1:8847 node tests/services.browser.cjs` after starting the preview server. The browser check includes provider configuration but verifies zero network writes, retained drafts and literal rendering of supplied text.
