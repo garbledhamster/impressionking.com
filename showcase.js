@@ -125,5 +125,5 @@
   viewport.querySelectorAll('[data-video]').forEach(button=>{const active=button.dataset.video===e.detail.id,playing=active&&e.detail.playing;button.dataset.playing=String(playing);button.setAttribute('aria-pressed',String(active));button.querySelector('.g-record-play').innerHTML=icon(playing?'stop':'play');button.setAttribute('aria-label',(playing?'Stop ':'Play ')+(state.videos.find(v=>v.id===button.dataset.video)?.title||'sample'));});
  });
  if(params.get('section')==='contact')showContact();
- window.ImpressionKing={getState:()=>({...state}),getDraft:mail};
+ window.ImpressionKing={getState:()=>({...state}),getDraft:mail,closeContact:hideContact,revealContactField};
 })();
