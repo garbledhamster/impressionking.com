@@ -64,7 +64,7 @@
     const endEnergy=next?.family===level.family?next.energy:Math.min(bolts.length,level.energy+4);
     const energy=level.energy+(endEnergy-level.energy)*between;
     const color=palettes[level.family];
-    const accent=state.awake?`hsl(${color.h} ${color.s}% ${color.l}%)`:'#72d6ff';
+    const accent=state.awake?`hsl(${color.h} ${color.s}% ${color.l}%)`:'#fafafa';
     document.documentElement.style.setProperty('--blue',accent);
     document.documentElement.style.setProperty('--red',state.awake?`hsl(${color.h} ${color.s}% ${Math.min(95,color.l+7)}%)`:'#ef6269');
     document.documentElement.style.setProperty('--primary-ink','#171717');
@@ -100,11 +100,11 @@
     const brand=document.querySelector('.site-header .brand');
     if(!source||!brand||brand.dataset.crownBound)return;
     const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-    svg.setAttribute('viewBox','0 0 820 256');
+    svg.setAttribute('viewBox','0 0 256 256');
     svg.setAttribute('class','brand-lockup crown-svg');
     svg.setAttribute('aria-hidden','true');
     svg.dataset.restored=String(state.settled);
-    svg.innerHTML=`<g transform="translate(16 22) scale(.828125)"><g class="crown-logo-echo">${source.mark}</g><rect class="crown-backplate" x="16" y="16" width="224" height="224"/><g class="crown-base">${source.mark}</g><g class="crown-powered">${source.mark}</g><g class="crown-energy">${bolts.map(d=>`<g class="crown-arc"><path class="crown-bolt-trail" pathLength="100" d="${d}"/><path class="crown-bolt" pathLength="100" d="${d}"/><path class="crown-spark" pathLength="100" d="${d}"/></g>`).join('')}</g></g>${source.words}`;
+    svg.innerHTML=`<g><g class="crown-logo-echo">${source.mark}</g><rect class="crown-backplate" x="16" y="16" width="224" height="224"/><g class="crown-base">${source.mark}</g><g class="crown-powered">${source.mark}</g><g class="crown-energy">${bolts.map(d=>`<g class="crown-arc"><path class="crown-bolt-trail" pathLength="100" d="${d}"/><path class="crown-bolt" pathLength="100" d="${d}"/><path class="crown-spark" pathLength="100" d="${d}"/></g>`).join('')}</g></g>`;
     // Energy stays behind the mark so dense silver trails cannot fill its cutouts.
     const energyLayer=svg.querySelector('.crown-energy');
     energyLayer.parentNode.insertBefore(energyLayer,svg.querySelector('.crown-backplate'));

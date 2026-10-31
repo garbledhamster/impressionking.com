@@ -1,6 +1,6 @@
 /* Original vector mark; aura, speed and page accents follow the session's level. */
 .crown-svg{overflow:visible;pointer-events:none;--crown-h:49;--crown-s:100%;--crown-l:60%;--crown-weight:1.5;--crown-speed:4.2s;--crown-logo-glow:0;--crown-electric-glow:0;--crown-color:hsl(var(--crown-h) var(--crown-s) var(--crown-l))}
-.crown-base{fill:#72d6ff}
+.crown-base{fill:#fafafa}
 .crown-powered{fill:var(--crown-color);clip-path:inset(100% 0 0);transition:clip-path 3s cubic-bezier(.2,.65,.3,1),fill .25s}
 .crown-svg[data-awake=true] .crown-powered{clip-path:inset(0)}
 .crown-svg[data-restored=true] .crown-powered{transition:none}
