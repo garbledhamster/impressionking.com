@@ -1,4 +1,4 @@
-/* Both drawers occupy the same frame; their content owns the remaining scroll space. */
+/* Both drawers share a measured frame; Contact fits its fields without panel scrolling. */
 .gallery-study .g-contact,#g-player.g-player{position:fixed;left:var(--shared-drawer-left);top:var(--shared-drawer-top);width:var(--shared-drawer-width);height:var(--shared-drawer-height);max-height:none;border:1px solid var(--blue);border-radius:6px;background:var(--g-surface);box-shadow:0 12px 48px #0009;overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .2s,visibility .4s}
 .gallery-study .g-contact{inset:auto;left:var(--shared-drawer-left);top:var(--shared-drawer-top);grid-column:auto;grid-row:auto;grid-template-rows:44px auto minmax(0,1fr);gap:0;padding:0;transform:translateY(calc(var(--shared-drawer-travel) + 60px))}
 .gallery-study .g-contact.g-open,#g-player.g-player[data-open=true]{transform:translateY(0)}
@@ -7,10 +7,21 @@
 .gallery-study .g-contact .g-contact-top{position:relative;min-height:54px;gap:8px;padding:8px 12px;margin:0;border-bottom:1px solid var(--g-edge)}
 .gallery-study .g-contact-top h2{font-size:16px;line-height:1.2;margin:0 0 4px}
 .gallery-study .g-contact-top p{font-size:11px;line-height:1.3}
-.gallery-study .g-contact #g-form{display:block;overflow:auto;min-height:0;margin:0;padding:16px 12px max(12px,env(safe-area-inset-bottom));overscroll-behavior:contain}
-.gallery-study .g-contact .g-form-body{display:flex;flex-direction:column;overflow:visible;min-height:0;height:auto;padding:0;gap:16px}
-.gallery-study .g-contact .g-form-body>.g-message-label{flex:none}
-.gallery-study .g-contact .g-form-actions{margin-top:20px}
+.gallery-study .g-contact #g-form{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:12px;overflow:hidden;min-height:0;margin:0;padding:14px 12px max(12px,env(safe-area-inset-bottom));}
+.gallery-study .g-contact .g-form-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto auto minmax(64px,1fr);overflow:hidden;min-height:0;height:100%;padding:0;gap:10px 12px}
+.gallery-study .g-contact .g-identify{display:contents}
+.gallery-study .g-contact .g-form-body label{min-width:0;min-height:0;gap:4px;font-size:12px;line-height:1.3}
+.gallery-study .g-contact .g-form-body>.g-message-label{grid-column:1/-1;grid-row:4;flex:none;min-height:0}
+.gallery-study .g-contact .g-form-body>.g-service-label{grid-column:1/-1;grid-row:2}
+.gallery-study .g-contact .g-form-body input,.gallery-study .g-contact .g-form-body select,.gallery-study .g-contact .g-form-body textarea{font-size:16px;line-height:1.35;min-height:44px;padding:9px 10px;border-radius:0}
+.gallery-study .g-contact .g-form-body textarea{height:0;flex:1 1 0;min-height:44px;resize:none;overflow:auto}
+.gallery-study .g-contact .g-context{grid-column:1/-1;grid-row:3;min-height:0;max-height:36px;padding:0;font-size:12px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gallery-study .g-contact .g-form-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:10px 0 0;border-top:1px solid var(--g-edge)}
+.gallery-study .g-contact .g-form-actions .g-primary{grid-column:1;min-height:44px;padding:8px;font-size:13px}
+.gallery-study .g-contact .g-copy{grid-column:2;min-height:44px;padding:8px 0}
+.gallery-study .g-contact #g-form-note{grid-column:1/-1;font-size:11px;line-height:1.4}
+.g-field-picker{display:none}
+.gallery-study .g-contact .g-form-actions{margin-top:0}
 #g-player-content{height:calc(100% - 44px);max-height:none;overflow:auto;padding:8px 12px 12px}
 .g-player-top{min-height:54px}
 #g-player-frame{width:min(100%,max(56px,calc((var(--shared-drawer-height) - 390px)*9/16)));min-width:56px}
@@ -18,12 +29,7 @@
  .gallery-study.g-drawer-open .g-workspace{position:fixed;top:var(--visible-top,0px);left:var(--visible-left,0px);width:var(--visible-width,100vw);height:var(--visible-height,100dvh);padding:0;gap:0;z-index:80;background:var(--g-canvas);grid-template-columns:minmax(0,1fr);grid-template-rows:calc(56px + env(safe-area-inset-top)) minmax(0,1fr);overflow:hidden}
  .gallery-study.g-drawer-open .g-picker{width:100%;margin-inline:0;padding:env(safe-area-inset-top) 6px 0;align-self:stretch}
  .gallery-study.g-drawer-open .g-gallery{visibility:hidden}
- .gallery-study .contact-open[data-short-contact=true] .g-contact{grid-template-rows:44px minmax(0,1fr)}
- .gallery-study .contact-open[data-short-contact=true] .g-contact-top{position:absolute;top:0;left:0;right:0;height:44px;min-height:44px;padding:0 4px 0 12px;border:0;z-index:1;pointer-events:none}
- .gallery-study .contact-open[data-short-contact=true] .g-contact-top h2{font-size:13px;max-width:110px;margin:0}
- .gallery-study .contact-open[data-short-contact=true] #g-contact-close{pointer-events:auto}
- .gallery-study .contact-open[data-short-contact=true] .g-contact-handle>span{margin-left:30px}
- .gallery-study .contact-open[data-short-contact=true] #g-form{grid-row:2;padding-top:10px}
+
 }
 @media(orientation:landscape) and (max-height:600px){#g-player-frame{width:max(45px,calc((var(--shared-drawer-height) - 220px)*9/16));min-width:45px}}
 @media(prefers-reduced-motion:reduce){.gallery-study .g-contact,#g-player.g-player{transition:none!important}}
@@ -31,3 +37,32 @@
 #g-player-frame{min-height:0}
 @media(orientation:landscape) and (max-height:600px){#g-player-content{padding-top:4px;padding-bottom:8px}}
 .gallery-study .g-contact{z-index:110}
+
+/* Short viewports (including the open keyboard) show one full-size field at a time. */
+.gallery-study .g-contact[data-form-compact=true]{grid-template-rows:44px minmax(0,1fr)}
+.gallery-study .g-contact[data-form-compact=true] .g-contact-top{position:absolute;top:0;left:0;right:0;height:44px;min-height:44px;padding:0 4px 0 12px;border:0;z-index:1;pointer-events:none;align-items:center}
+.gallery-study .g-contact[data-form-compact=true] .g-contact-top h2{font-size:13px;margin:0}
+.gallery-study .g-contact[data-form-compact=true] .g-contact-top p{display:none}
+.gallery-study .g-contact[data-form-compact=true] #g-contact-close{pointer-events:auto}
+.gallery-study .g-contact[data-form-compact=true] .g-contact-handle>span{margin-left:30px}
+.gallery-study .g-contact[data-form-compact=true] #g-form{grid-row:2;grid-template-rows:36px minmax(0,1fr) 44px;padding:6px 12px 10px;gap:6px}
+.gallery-study .g-contact[data-form-compact=true] .g-field-picker{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;min-height:0}
+.g-field-picker button{min-width:0;padding:4px 0;border:1px solid var(--g-edge);background:transparent;color:var(--g-text);font-size:12px}
+.g-field-picker button[aria-pressed=true]{border-color:var(--blue);color:var(--blue)}
+.gallery-study .g-contact[data-form-compact=true] .g-form-body{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:0}
+.gallery-study .g-contact[data-form-compact=true] .g-form-body label{display:none;grid-column:1;grid-row:1;min-height:0}
+.gallery-study .g-contact[data-form-compact=true] .g-form-body label[data-field-active=true]{display:flex;justify-content:flex-start}
+.gallery-study .g-contact[data-form-compact=true] .g-form-body label[data-field-active=true] textarea{flex:1}
+.gallery-study .g-contact[data-form-compact=true] .g-context{display:none}
+.gallery-study .g-contact[data-form-compact=true] .g-form-actions{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:44px;border:0;padding:0;margin:0}
+.gallery-study .g-contact[data-form-compact=true] #g-form-note{display:none}
+
+.gallery-study .g-contact .g-copy>.g-icon{display:none}
+.gallery-study .g-contact[data-form-compact=true] .g-form-body textarea{min-height:44px}
+/* At very short keyboard heights, email actions share the drawer's top bar. */
+.gallery-study .g-contact[data-form-tight=true] #g-form{grid-template-rows:32px minmax(0,1fr);gap:4px;padding:4px 12px 8px}
+.gallery-study .g-contact[data-form-tight=true] .g-form-actions{position:absolute;top:0;right:44px;height:44px;display:flex;gap:0}
+.gallery-study .g-contact[data-form-tight=true] .g-form-actions button{display:inline-flex;align-items:center;justify-content:center;width:44px;min-width:44px;height:44px;padding:10px;border:0;background:transparent;color:var(--blue)}
+.gallery-study .g-contact[data-form-tight=true] .g-form-actions .g-icon{display:block;width:20px;height:20px;background:currentColor}
+.gallery-study .g-contact[data-form-tight=true] .g-email-label,.gallery-study .g-contact[data-form-tight=true] .g-contact-top h2{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.gallery-study .g-contact[data-form-tight=true] .g-contact-handle>span{margin-left:0;margin-right:auto;transform:translateX(-70px)}

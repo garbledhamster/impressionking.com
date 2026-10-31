@@ -79,7 +79,7 @@
     const crownEnergy=blend('energy'),crownSpeed=blend('speed'),crownScale=state.awake?blend('scale'):1,crownReach=state.awake?blend('reach'):1;
 
     const color=palettes[level.family];
-    const accent=state.awake?`hsl(${color.h} ${color.s}% ${color.l}%)`:'#fafafa';
+    const accent=state.awake?`hsl(${color.h} ${color.s}% ${color.l}%)`:'#b88aff';
     document.documentElement.style.setProperty('--blue',accent);
     document.documentElement.dataset.powered=String(state.awake);
     document.documentElement.dataset.powerFamily=state.awake?level.family:'original';
@@ -92,7 +92,7 @@
     document.documentElement.style.setProperty('--primary-ink','#171717');
     document.documentElement.style.setProperty('--primary-icon-filter','brightness(0)');
     for(const svg of document.querySelectorAll('.crown-svg')) {
-      const previous=svg.dataset.stage,previousFamily=svg.dataset.family,previousColor=svg.style.getPropertyValue('--crown-color-value')||'#fafafa';
+      const previous=svg.dataset.stage,previousFamily=svg.dataset.family,previousColor=svg.style.getPropertyValue('--crown-color-value')||'#b88aff';
       svg.dataset.stage=state.awake?level.key:'original';
       svg.style.setProperty('--crown-color-value',accent);
       if(state.awake&&previous!==level.key){svg.style.setProperty('--crown-base-color',previous!=='original'&&previousFamily===level.family?`hsl(${color.h} ${color.s}% ${color.l*.42}%)`:previousColor);const fill=svg.querySelector('.crown-powered');fill.getAnimations().forEach(a=>a.cancel());if(!matchMedia('(prefers-reduced-motion:reduce)').matches)fill.animate([{clipPath:'inset(100% 0 0)'},{clipPath:'inset(0 0 0)'}],{duration:1000,easing:'cubic-bezier(.16,1,.3,1)'});}

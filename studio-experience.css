@@ -17,8 +17,8 @@
 /* Material is changed only after the easter egg is unlocked. */
 .g-material-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
 .g-fabric-color{flood-color:var(--blue)}
-html[data-powered=true] .g-character{filter:url(#hoodie-power)}
-.crown-base{fill:var(--crown-base-color,#fafafa)}
+.gallery-study .g-character{filter:url(#hoodie-power)}
+.crown-base{fill:var(--crown-base-color,var(--blue))}
 .crown-powered{transition:fill .2s;clip-path:inset(100% 0 0)}
 .crown-svg[data-awake=true] .crown-powered{clip-path:inset(0)}
 .g-primary,.g-text-action{position:relative;isolation:isolate;overflow:visible}
@@ -107,3 +107,14 @@ html:not([data-powered=true]) .g-action-energy,.g-leaving .g-action-energy{displ
 @media(prefers-reduced-motion:reduce){.g-scroll-edge{transition:none}}
 /* Let the record strip overflow inside the card instead of sizing the card to its contents. */
 .gallery-study #g-samples,.gallery-study .g-media-picker,.g-sample-rail{min-width:0;max-width:100%}
+
+/* One gallery stage and a quiet footer replace the separate transport row. */
+.gallery-study .g-shell{grid-template-rows:102px minmax(0,1fr) 24px;row-gap:10px}
+.gallery-study .g-workspace{grid-template-rows:66px minmax(0,1fr);row-gap:8px}
+.gallery-study .g-gallery{grid-template-rows:minmax(0,1fr);gap:0}
+.gallery-study .g-viewport{grid-row:1}
+.gallery-study .g-card{padding-top:10px}
+.g-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;min-width:0;color:var(--g-muted);font-size:11px;line-height:1.3}
+.g-footer a{display:flex;align-items:center;min-height:24px;color:var(--blue);text-decoration:none}
+@media(max-width:700px){.gallery-study .g-shell{grid-template-rows:76px minmax(0,1fr) 24px}.gallery-study .g-workspace{grid-template-rows:56px minmax(0,1fr)}}
+@media(orientation:landscape) and (max-height:600px){.gallery-study .g-shell{grid-template-rows:72px minmax(0,1fr) 20px;row-gap:5px}.gallery-study .g-workspace{grid-template-rows:56px minmax(0,1fr);row-gap:4px}.g-footer{font-size:10px}}
