@@ -9,7 +9,7 @@
  const state={variant:'A',section:sections.includes(params.get('section'))?params.get('section'):'welcome',contact:false,selected:null,service:'Voice work',context:'',videos:[],playing:false};
  const serviceNames={voices:'Voice work',beats:'Beat request',trailers:'Trailer voiceover',about:'General inquiry',services:'General inquiry'};
  const titles={welcome:'Home',voices:'Voices',beats:'Beats',trailers:'Trailers',about:'About',services:'Services',contact:'Contact'};
- const icons={welcome:'home',voices:'microphone',beats:'musical-note',trailers:'play-circle',about:'user-circle',services:'briefcase',contact:'chat-bubble-left-right'};
+ const icons={welcome:'home-solid',voices:'microphone',beats:'musical-note',trailers:'play-circle',about:'user-circle',services:'briefcase',contact:'chat-bubble-left-right'};
  const art={welcome:'hoodie-welcome',voices:'hoodie-phone-wired-v2',beats:'hoodie-beats-table-v2',trailers:'hoodie-trailer-standing',about:'hoodie-profile'};
  const copy={voices:['Voice impressions.','Anime, games and cartoons. Hear Jacob’s voices and tell him what you have in mind.','Request a voice'],beats:['Music & beats.','Browse Jacob’s beats and remixes. Choose a track to include it in your request.','Request a beat'],trailers:['Trailer voiceovers.','Tell Jacob about the story, the tone and where your trailer will run.','Discuss a trailer']};
  const bio="I’m Jacob Williams, the voice impressionist and beatmaker behind Impression King. I’ve been creating content since 2007, and I love playing video games. As a legally blind creator, I use assistive technology and my ear for voices to make my videos. I listen to this community and do my best with your ideas and requests. Make yourself at home, and tell me what you’d like to hear next.";
