@@ -386,16 +386,94 @@
           "OralBurrows"
         ]
       }
+    },
+    {
+      "id": "7702916773472996638",
+      "title": "AIHorror",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "​#AIHorror ​#TrueHorrorStories ​#ScaryAI ​#HorrorTikTok ​#CreepyStories",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7702916773472996638",
+      "media_kind": "unknown",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-01",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "AIHorror",
+          "TrueHorrorStories",
+          "ScaryAI",
+          "HorrorTikTok",
+          "CreepyStories"
+        ]
+      }
+    },
+    {
+      "id": "7702902787134328095",
+      "title": "AIHorrorStories",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "#AIHorrorStories ​#TrueAIHorror ​#SentientAI ​#CreepyAI ​#DigitalHorror",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7702902787134328095",
+      "media_kind": "unknown",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-01",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "AIHorrorStories",
+          "TrueAIHorror",
+          "SentientAI",
+          "CreepyAI",
+          "DigitalHorror"
+        ]
+      }
+    },
+    {
+      "id": "7702885339668483359",
+      "title": "AISelfie",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "#AISelfie ​#AIAvatar ​#AIGenerated ​#AIContentCreator ​#DigitalTwin",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7702885339668483359",
+      "media_kind": "unknown",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-01",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "AISelfie",
+          "AIAvatar",
+          "AIGenerated",
+          "AIContentCreator",
+          "DigitalTwin"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-10-30",
+  "last_checked": "2026-11-01",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-10-30"
+    "last_checked": "2026-11-01"
   }
 }
