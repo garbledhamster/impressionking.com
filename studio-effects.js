@@ -70,7 +70,7 @@
  document.addEventListener('visibilitychange',syncAll);motion.addEventListener('change',syncAll);
  function decorate(){
   for(const button of observed)if(!button.isConnected){resizeEnergy.unobserve(button);intersectionEnergy.unobserve(button);observed.delete(button);visible.delete(button);}
-  document.querySelectorAll('.g-primary,.g-text-action').forEach(button=>{
+  document.querySelectorAll('.g-header-actions .g-primary').forEach(button=>{
    if(button.querySelector('.g-action-energy'))return;
    button.insertAdjacentHTML('beforeend','<svg class="g-action-energy" aria-hidden="true"><path class="g-action-wave" pathLength="100"/><path class="g-action-trail" pathLength="100"/><path class="g-action-bolt" pathLength="100"/><path class="g-action-spark" pathLength="100"/></svg>');
    observed.add(button);resizeEnergy.observe(button);intersectionEnergy.observe(button);drawEnergy(button);

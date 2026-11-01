@@ -80,7 +80,8 @@
 
     const color=palettes[level.family];
     const accent=state.awake?`hsl(${color.h} ${color.s}% ${color.l}%)`:'#b88aff';
-    document.documentElement.style.setProperty('--blue',accent);
+    document.documentElement.style.setProperty('--blue','#b88aff');
+    document.documentElement.style.setProperty('--identity-accent',accent);
     document.documentElement.dataset.powered=String(state.awake);
     document.documentElement.dataset.powerFamily=state.awake?level.family:'original';
     document.documentElement.style.setProperty('--energy-speed',level.speed*(1-between*.12)+'s');
@@ -88,7 +89,7 @@
     document.documentElement.style.setProperty('--action-weight',1.1+level.tier*.3+between*.15);
     document.documentElement.style.setProperty('--action-glow',level.electric+level.logo*.45);
 
-    document.documentElement.style.setProperty('--red',state.awake?`hsl(${color.h} ${color.s}% ${Math.min(95,color.l+7)}%)`:'#ef6269');
+    document.documentElement.style.setProperty('--red','#9c75d9');
     document.documentElement.style.setProperty('--primary-ink','#171717');
     document.documentElement.style.setProperty('--primary-icon-filter','brightness(0)');
     for(const svg of document.querySelectorAll('.crown-svg')) {
@@ -148,7 +149,7 @@
     paint();
 
   }
-  document.addEventListener('click',event=>{if(!(event.target instanceof Element))return;const target=event.target;if(!state.awake&&!target.closest('[data-power-trigger]'))return;if(target.closest('button,a,input,select,textarea,summary,[role=button],[data-active],.g-small-callout'))click();});
+  document.addEventListener('click',event=>{if(!(event.target instanceof Element))return;if(event.target.closest('[data-power-trigger]'))click();});
   // Images keep their existing layout; delegated keys also cover newly rendered poses.
   document.addEventListener('keydown',event=>{if(event.target instanceof Element&&event.target.matches('.g-character[data-power-trigger]')&&['Enter',' '].includes(event.key))event.preventDefault();});
   document.addEventListener('keyup',event=>{if(event.target instanceof Element&&event.target.matches('.g-character[data-power-trigger]')&&['Enter',' '].includes(event.key)){event.preventDefault();event.target.click();}});

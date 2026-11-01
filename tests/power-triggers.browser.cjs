@@ -19,7 +19,7 @@ const assert = require('node:assert/strict');
       }
       for (const section of ['voices','beats','trailers','about','services']) {
         await page.goto(`${url.replace(/\/$/,'/').split('?')[0]}?section=${section}`); await page.waitForSelector('.crown-svg');
-        const avatars=page.locator('[data-active] .g-character');
+        const avatars=page.locator('[data-active] .g-character[data-power-trigger]');
         for (let i=0;i<await avatars.count();i++) {
           const before=Number(await count());
           await activate(avatars.nth(i));
@@ -34,7 +34,7 @@ const assert = require('node:assert/strict');
       await page.goto(url); await page.waitForSelector('.crown-svg');
       await page.locator('.brand').focus(); await page.keyboard.press('Enter'); assert.equal(await count(),'1');
       await page.keyboard.press('Space'); assert.equal(await count(),'2');
-      await page.evaluate(()=>{for(let i=0;i<105;i++)document.querySelector('[data-active] .g-character').click()});
+      await page.evaluate(()=>{for(let i=0;i<105;i++)document.querySelector('[data-active] .g-character[data-power-trigger]').click()});
       assert.equal(await count(),'100'); assert.equal(await page.locator('.crown-svg').getAttribute('data-stage'),'silver3');
       await page.reload();await page.waitForSelector('.crown-svg');assert.equal(await count(),'0');
       results.push({mobile,names:true,allAvatarPoses:true,keyboard:true,oneIncrementPerActivation:true,capAndReset:true});
