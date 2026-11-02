@@ -23,13 +23,13 @@ for(const k of['x','y','width','height'])assert(Math.abs(empty[k]-full[k])<2,k+'
 const remove=await p.locator('[data-remove]').evaluate(e=>({border:getComputedStyle(e).borderTopWidth,label:e.getAttribute('aria-label')}));assert.equal(remove.border,'0px');assert.match(remove.label,/Remove/);
 await p.locator('[data-clear]').click();const clear=await p.locator('.sc-cart').boundingBox();assert(Math.abs(clear.height-empty.height)<2);assert(Math.abs(clear.y-empty.y)<2);
 }finally{await p.close();}}});
-test('banner owns order and TikTok CTAs; ordinary buttons never increase power or recolor the page',async()=>{const p=await page();try{
+test('site accents and CTA energy follow identity power; ordinary buttons never advance it',async()=>{const p=await page();try{
 assert.equal(await p.locator('.g-header #g-tab-contact').innerText(),'Order Now');assert.equal(await p.locator('.g-picker #g-tab-contact').count(),0);
 assert.equal(await p.locator('.g-header-actions .g-primary').count(),2);assert.equal(await p.locator('.g-header-actions [style*=tiktok]').count(),1);
 await p.locator('.crown-svg').waitFor();const accent=await p.evaluate(()=>getComputedStyle(document.body).getPropertyValue('--g-accent'));
-await p.locator('.brand').click();const clicks=await p.locator('.crown-svg').getAttribute('data-clicks');await p.getByRole('button',{name:'Next',exact:true}).click();await p.locator('[data-direction=Playful]').click();
-assert.equal(await p.locator('.crown-svg').getAttribute('data-clicks'),clicks);assert.equal(await p.evaluate(()=>getComputedStyle(document.body).getPropertyValue('--g-accent')),accent);
-assert.notEqual(await p.locator('.g-brand-copy').evaluate(e=>getComputedStyle(e).color),await p.locator('.g-picker button').first().evaluate(e=>getComputedStyle(e).color));
+await p.locator('.brand').click();const clicks=await p.locator('.crown-svg').getAttribute('data-clicks');const poweredAccent=await p.evaluate(()=>getComputedStyle(document.body).getPropertyValue('--g-accent'));assert.notEqual(poweredAccent,accent);assert.equal(await p.locator('.sc-guide-actions .g-primary .g-action-energy').count(),1);await p.getByRole('button',{name:'Next',exact:true}).click();await p.locator('[data-direction=Playful]').click();
+assert.equal(await p.locator('.crown-svg').getAttribute('data-clicks'),clicks);assert.equal(await p.evaluate(()=>getComputedStyle(document.body).getPropertyValue('--g-accent')),poweredAccent);
+assert.equal(await p.locator('.g-brand-copy').evaluate(e=>getComputedStyle(e).color),await p.locator('.g-picker button').first().evaluate(e=>getComputedStyle(e).color));
 const nav=p.locator('.g-picker button').first(),before=await nav.evaluate(e=>getComputedStyle(e).backgroundColor);await nav.hover();assert.notEqual(await nav.evaluate(e=>getComputedStyle(e).backgroundColor),before);
 }finally{await p.close();}});
 

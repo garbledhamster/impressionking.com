@@ -12,7 +12,7 @@ Constraints: preserve Studio/Ash callout cards, purple page accents, service-spe
 - [x] Scope power colors to logo, wordmark, avatars and the two banner CTAs; identity activation only. Apply consistent purple hover highlights to other buttons.
 - [x] Run model, guide, cart, navigation, crown and media regressions across desktop/phone/short viewports. Inspect desktop and mobile together, fix in one batch, confirm.
 - [x] Review final diff, install verified source into the usual Mac preview, verify served behavior and update project records.
-- [ ] Publish and verify public HTTPS after Joe explicitly authorizes the GitHub destination and this release.
+- [x] Publish and verify public HTTPS after Joe explicitly authorizes the GitHub destination and this release.
 
 Review focus: empty/populated/cleared frame stability; switching services retains each configuration; changing selections does not silently mutate saved cart; modal draft/focus/keyboard safety; ordinary navigation never increases power.
 
@@ -27,3 +27,5 @@ Verified: 14 focused tests and all six responsive workflows passed locally; 8 UI
 Close: private preview installed and verified, project README and Site deployment updated, daily progress saved. Automatic approval review rejected the GitHub create_tree upload, so no remote tree/commit/ref changed. Publication remains held for Joe’s explicit authorization; public site stays on df33d36. Local factual-draft helper initially omitted evidence, then passed with a two-fact batch; all prose was checked against primary evidence.
 
 Publication authorization — November 1: Joe explicitly instructed “update now and get it pushed deployed.” Upload to the existing garbledhamster/impressionking.com repository and deploy impressionking.com are authorized. Public verification is the next step.
+
+Completed — November 1: pushed release `dd4c6c573275094a93bde720f28476c71c38f64b`; Pages run `41322324351` succeeded. Eight UI regressions and six viewport workflows passed on public HTTPS, and ten runtime assets match the tested source. All task-list items are complete. The form continues to preview requests only. Project README and Site deployment own the installed release and next action.

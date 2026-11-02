@@ -1,7 +1,7 @@
 /* Shared power materials and small, bounded interaction effects. No image variants. */
 (()=>{
  'use strict';
- if(!document.querySelector('link[href*="studio-experience.css"]')){const sheet=document.createElement('link');sheet.addEventListener('load',()=>document.documentElement.dataset.experienceReady='true',{once:true});sheet.rel='stylesheet';sheet.href='/studio-experience.css?v=nav-logo-12';document.head.append(sheet);}
+ if(!document.querySelector('link[href*="studio-experience.css"]')){const sheet=document.createElement('link');sheet.addEventListener('load',()=>document.documentElement.dataset.experienceReady='true',{once:true});sheet.rel='stylesheet';sheet.href='/studio-experience.css?v=soft-power-3';document.head.append(sheet);}
  // Chroma keys the saturated orange fabric; neutral equipment and skin stay original.
  // Both channel tests must match. Source alpha clips the result at the real cutout edge.
  const filters=document.createElementNS('http://www.w3.org/2000/svg','svg');
@@ -70,7 +70,7 @@
  document.addEventListener('visibilitychange',syncAll);motion.addEventListener('change',syncAll);
  function decorate(){
   for(const button of observed)if(!button.isConnected){resizeEnergy.unobserve(button);intersectionEnergy.unobserve(button);observed.delete(button);visible.delete(button);}
-  document.querySelectorAll('.g-header-actions .g-primary').forEach(button=>{
+  document.querySelectorAll('.g-primary,.g-text-action').forEach(button=>{
    if(button.querySelector('.g-action-energy'))return;
    button.insertAdjacentHTML('beforeend','<svg class="g-action-energy" aria-hidden="true"><path class="g-action-wave" pathLength="100"/><path class="g-action-trail" pathLength="100"/><path class="g-action-bolt" pathLength="100"/><path class="g-action-spark" pathLength="100"/></svg>');
    observed.add(button);resizeEnergy.observe(button);intersectionEnergy.observe(button);drawEnergy(button);

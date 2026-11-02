@@ -119,14 +119,14 @@ html:not([data-powered=true]) .g-action-energy,.g-leaving .g-action-energy{displ
 @media(max-width:700px){.gallery-study .g-shell{grid-template-rows:76px minmax(0,1fr) 24px}.gallery-study .g-workspace{grid-template-rows:56px minmax(0,1fr)}}
 @media(orientation:landscape) and (max-height:600px){.gallery-study .g-shell{grid-template-rows:72px minmax(0,1fr) 20px;row-gap:5px}.gallery-study .g-workspace{grid-template-rows:56px minmax(0,1fr);row-gap:4px}.g-footer{font-size:10px}}
 
-/* Identity-only transformations; the gallery keeps its purple accent. */
+/* Identity clicks drive shared interactive accents and avatar material. */
 .g-fabric-color{flood-color:var(--identity-accent,#b88aff)}
 .gallery-study .g-header .brand{color:var(--identity-accent,#b88aff)}
 .g-header-actions{--blue:var(--identity-accent,#b88aff);--g-accent:var(--identity-accent,#b88aff);display:flex;align-items:center;gap:12px;flex-shrink:0}
 .gallery-study .g-header-actions .g-primary{display:inline-flex;gap:9px;min-height:44px;padding:10px 15px;color:#19141f;background:var(--g-accent);border:1px solid var(--g-accent);font-size:13px;white-space:nowrap}
 .gallery-study .g-header-actions .g-icon{display:inline-block;background:currentColor;width:19px;height:19px;flex:none}
 .gallery-study .g-picker{grid-template-columns:repeat(6,minmax(0,1fr))}
-/* A shared purple highlight covers button controls without changing ordinary content. */
+/* Button highlights follow the current power color. */
 .gallery-study :is(button,a.g-primary,.g-player-toolbar a,summary){transition:background-color .15s,border-color .15s,color .15s}
 @media(hover:hover){
  .gallery-study :is(button:not(.brand),a.g-primary,.g-player-toolbar a,summary):not(:disabled):hover{color:var(--g-accent);border-color:var(--g-accent);background:color-mix(in srgb,var(--g-accent) 16%,var(--g-surface))}
@@ -141,4 +141,7 @@ html:not([data-powered=true]) .g-action-energy,.g-leaving .g-action-energy{displ
 @media(max-width:360px){.gallery-study .g-header .brand{gap:8px}.gallery-study .g-brand-copy strong{font-size:16px}.gallery-study .g-brand-copy>span{font-size:10px}.gallery-study .g-header-actions .g-primary{padding:8px;font-size:11px}.gallery-study .g-header-actions .g-icon{width:16px;height:16px}.g-header-actions{gap:6px}}
 @media(prefers-reduced-motion:reduce){.gallery-study :is(button,a.g-primary,summary){transition:none}}
 
-@media(hover:hover){html[data-power-family=red] .gallery-study .g-header-actions .g-primary:hover{color:#fafafa}}
+@media(hover:hover){html[data-power-family=red] .gallery-study .g-primary:hover{color:#fafafa}}
+
+/* Softer red/blue fills retain readable matching text on neutral surfaces. */
+.gallery-study :is(.sc-cart-button,.sc-steps [aria-current],.sc-summary-contact,.sc-back,.sc-clear,.sc-edit,.sc-browse,.sc-directions button[aria-pressed=true],.sc-projects button[aria-pressed=true],.sc-build-services button[aria-pressed=true],.g-text-action,.g-trailer-options button,.g-about-actions a,.g-footer a):not(:disabled){color:var(--accent-readable,var(--g-accent))}

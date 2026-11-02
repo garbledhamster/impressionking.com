@@ -1,7 +1,7 @@
 /* Crown interaction. Session memory only; refresh restores the first reveal. */
 (() => {
   'use strict';
-  const palettes={yellow:{h:49,s:100,l:60},red:{h:0,s:91,l:58},blue:{h:199,s:100,l:60},silver:{h:210,s:14,l:94}};
+  const palettes={yellow:{h:49,s:100,l:60},red:{h:0,s:54,l:62,glow:.55},blue:{h:205,s:54,l:61,glow:.72},silver:{h:210,s:14,l:94}};
   // Click thresholds, density and aura are deliberately kept together for tuning.
   const levels = [
     {at:0, key:'yellow',family:'yellow',tier:1,energy:4, logo:0, electric:0, speed:4.2},
@@ -78,18 +78,19 @@
     const blend=key=>profile[key]+(following[key]-profile[key])*progress;
     const crownEnergy=blend('energy'),crownSpeed=blend('speed'),crownScale=state.awake?blend('scale'):1,crownReach=state.awake?blend('reach'):1;
 
-    const color=palettes[level.family];
+    const color=palettes[level.family],glow=color.glow??1;
     const accent=state.awake?`hsl(${color.h} ${color.s}% ${color.l}%)`:'#b88aff';
-    document.documentElement.style.setProperty('--blue','#b88aff');
+    document.documentElement.style.setProperty('--blue',accent);
     document.documentElement.style.setProperty('--identity-accent',accent);
+    document.documentElement.style.setProperty('--accent-readable',state.awake&&['red','blue'].includes(level.family)?`color-mix(in srgb, ${accent} ${level.family==='red'?68:86}%, white)`:accent);
     document.documentElement.dataset.powered=String(state.awake);
     document.documentElement.dataset.powerFamily=state.awake?level.family:'original';
     document.documentElement.style.setProperty('--energy-speed',level.speed*(1-between*.12)+'s');
     document.documentElement.style.setProperty('--action-energy',state.awake?(.78+energy/bolts.length*.22):0);
     document.documentElement.style.setProperty('--action-weight',1.1+level.tier*.3+between*.15);
-    document.documentElement.style.setProperty('--action-glow',level.electric+level.logo*.45);
+    document.documentElement.style.setProperty('--action-glow',(level.electric+level.logo*.45)*glow);
 
-    document.documentElement.style.setProperty('--red','#9c75d9');
+    document.documentElement.style.setProperty('--red',`color-mix(in srgb, ${accent} 84%, #000)`);
     document.documentElement.style.setProperty('--primary-ink','#171717');
     document.documentElement.style.setProperty('--primary-icon-filter','brightness(0)');
     for(const svg of document.querySelectorAll('.crown-svg')) {
@@ -106,8 +107,8 @@
       svg.style.setProperty('--crown-s',color.s+'%');
       svg.style.setProperty('--crown-l',color.l+'%');
       svg.style.setProperty('--crown-weight',1.25+level.tier*.35+between*.25);
-      svg.style.setProperty('--crown-logo-glow',profile.logo+(level.family!=='yellow'?(level.family==='red' ? .9 : .6):0));
-      svg.style.setProperty('--crown-electric-glow',profile.electric);
+      svg.style.setProperty('--crown-logo-glow',(profile.logo+(level.family!=='yellow'?(level.family==='red' ? .9 : .6):0))*glow);
+      svg.style.setProperty('--crown-electric-glow',profile.electric*glow);
       svg.style.setProperty('--crown-scale',crownScale);
       svg.dataset.reach=crownReach;
       svg.style.setProperty('--crown-speed',crownSpeed+'s');
