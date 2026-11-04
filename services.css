@@ -54,3 +54,22 @@
 }
 @media(max-height:600px){.sc-guide-content{padding:16px;gap:12px}.sc-step-title{font-size:25px}.sc-build-services button{min-height:94px}.sc-emblem{width:42px;height:42px}.sc-explanation{min-height:64px}.sc-cart-selection{height:190px}}
 @media(prefers-reduced-motion:reduce){.sc-panel *,.sc-cart *{transition:none!important;animation:none!important}}
+
+/* Keep compact/zoomed service content in one reachable child scroll region. */
+.gallery-study .g-viewport{container-type:size}
+.gallery-study .sc-panel{overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--g-accent) var(--g-canvas)}
+.gallery-study .sc-guide{min-height:340px;flex-shrink:0}
+.sc-heading,.sc-steps{flex-wrap:wrap}
+.sc-panel :is(h1,h2,p,button){overflow-wrap:anywhere}
+.sc-directions button,.sc-projects button{min-width:0}
+.sc-cart-status{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@container(max-height:320px){
+ .gallery-study .sc-panel{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--g-accent) var(--g-canvas)}
+ .gallery-study .sc-guide{flex:none;min-height:0}
+ .sc-guide-content{height:auto;width:100%;padding:12px}
+ .sc-guide-scroll{flex:none;overflow:visible;gap:12px;padding:4px}
+ .sc-step-heading{padding-right:0;min-height:0}.sc-step-art{display:none}
+ .sc-step-title{font-size:22px}.sc-step-intro{margin-top:8px!important}
+ .sc-build-services button{min-height:44px;padding:8px 4px}.sc-emblem{display:none}
+ .sc-guide-actions{flex-wrap:wrap}.sc-guide-actions>.sc-primary{max-width:100%}
+}
