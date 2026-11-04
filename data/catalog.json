@@ -464,16 +464,42 @@
           "DigitalTwin"
         ]
       }
+    },
+    {
+      "id": "7704176831364091167",
+      "title": "AnimatedMusicVideo",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "​#AnimatedMusicVideo ​#RomanticAnimation ​#PassionateDance ​#DanceAnimation ​#LoveInMotion",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7704176831364091167",
+      "media_kind": "unknown",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-04",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "AnimatedMusicVideo",
+          "RomanticAnimation",
+          "PassionateDance",
+          "DanceAnimation",
+          "LoveInMotion"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-11-01",
+  "last_checked": "2026-11-04",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-11-01"
+    "last_checked": "2026-11-04"
   }
 }
