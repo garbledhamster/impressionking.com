@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.tiktok.com/embed/@impressionking30",
-  "retrieved_at": "2026-11-04T18:39:39.564135+00:00",
+  "retrieved_at": "2026-11-05T18:46:34.485754+00:00",
   "coverage": "public widget recent window; not full account history",
   "videos": [
     {
@@ -12,12 +12,20 @@
       "playCount": 739
     },
     {
+      "id": "7704393664369413406",
+      "desc": "BeatEmUpAnimation ​#BlindHero ​#IndieAction ​#ActionCartoons ​#DisabledRepresentation",
+      "authorUniqueId": "impressionking30",
+      "height": 1278,
+      "width": 720,
+      "playCount": 61
+    },
+    {
       "id": "7704176831364091167",
       "desc": "​#AnimatedMusicVideo ​#RomanticAnimation ​#PassionateDance ​#DanceAnimation ​#LoveInMotion",
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 24
+      "playCount": 41
     },
     {
       "id": "7702916773472996638",
@@ -25,7 +33,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 152
+      "playCount": 155
     },
     {
       "id": "7702902787134328095",
@@ -33,7 +41,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 161
+      "playCount": 162
     },
     {
       "id": "7702885339668483359",
@@ -41,7 +49,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 74
+      "playCount": 76
     },
     {
       "id": "7702567019811474719",
@@ -49,7 +57,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 85
+      "playCount": 87
     },
     {
       "id": "7702501341498756383",
@@ -57,7 +65,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 122
+      "playCount": 123
     },
     {
       "id": "7702091040911609118",
@@ -65,7 +73,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 101
+      "playCount": 103
     },
     {
       "id": "7701609818364169502",
@@ -73,7 +81,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 59
+      "playCount": 60
     },
     {
       "id": "7701413488874507551",
@@ -81,15 +89,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 98
-    },
-    {
-      "id": "7700323765304954142",
-      "desc": "DetroitBeatmaker ​#ChiptuneBeats ​#VideoGameSample ​#DetroitMelodies ​#GamingProducer",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 119
+      "playCount": 102
     }
   ]
 }
