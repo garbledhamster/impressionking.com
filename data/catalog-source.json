@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.tiktok.com/embed/@impressionking30",
-  "retrieved_at": "2026-11-05T18:46:34.485754+00:00",
+  "retrieved_at": "2026-11-08T17:04:26.059632+00:00",
   "coverage": "public widget recent window; not full account history",
   "videos": [
     {
@@ -12,12 +12,28 @@
       "playCount": 739
     },
     {
-      "id": "7704393664369413406",
-      "desc": "BeatEmUpAnimation ​#BlindHero ​#IndieAction ​#ActionCartoons ​#DisabledRepresentation",
+      "id": "7705746711062301982",
+      "desc": "MinneapolisToDetroit ​#MNBeatmaker ​#MinnesotaProducer ​#DetroitStyleBeats ​#MidwestProducer",
+      "authorUniqueId": "impressionking30",
+      "height": 1280,
+      "width": 720,
+      "playCount": 20
+    },
+    {
+      "id": "7705743330650459422",
+      "desc": "Here are five strong hashtags combining your Minnesota rap identity with Detroit-style beats: ​#MinnesotaRapper ​#DetroitTypeBeat ​#MNtoDetroit ​#MidwestRap ​#TwinCitiesHipHop",
+      "authorUniqueId": "impressionking30",
+      "height": 1280,
+      "width": 720,
+      "playCount": 44
+    },
+    {
+      "id": "7705582581315538207",
+      "desc": "#AnimeFighter ​#3DAnime ​#BeatEmUp ​#AnimeAction ​#3DGaming",
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 61
+      "playCount": 58
     },
     {
       "id": "7704176831364091167",
@@ -25,7 +41,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 41
+      "playCount": 48
     },
     {
       "id": "7702916773472996638",
@@ -33,7 +49,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 155
+      "playCount": 165
     },
     {
       "id": "7702902787134328095",
@@ -41,7 +57,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 162
+      "playCount": 171
     },
     {
       "id": "7702885339668483359",
@@ -49,7 +65,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 76
+      "playCount": 83
     },
     {
       "id": "7702567019811474719",
@@ -57,7 +73,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 87
+      "playCount": 89
     },
     {
       "id": "7702501341498756383",
@@ -65,7 +81,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 123
+      "playCount": 127
     },
     {
       "id": "7702091040911609118",
@@ -73,23 +89,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 103
-    },
-    {
-      "id": "7701609818364169502",
-      "desc": "ZeldaFlip ​#TwilightPrincess  ​#DetroitBounce  ​#BeatMaking  ​#GamingRemix ",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 60
-    },
-    {
-      "id": "7701413488874507551",
-      "desc": "​#CartoonTypeBeat ​#NostalgicBeats ​#OldSchoolCartoonBeats ​#CartoonVibes ​#SampledBeats",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 102
+      "playCount": 104
     }
   ]
 }

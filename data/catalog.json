@@ -515,16 +515,93 @@
           "DisabledRepresentation"
         ]
       }
+    },
+    {
+      "id": "7705746711062301982",
+      "title": "MinneapolisToDetroit",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Music"
+      ],
+      "description": "MinneapolisToDetroit ​#MNBeatmaker ​#MinnesotaProducer ​#DetroitStyleBeats ​#MidwestProducer",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7705746711062301982",
+      "media_kind": "music",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-08",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "MNBeatmaker",
+          "MinnesotaProducer",
+          "DetroitStyleBeats",
+          "MidwestProducer"
+        ]
+      }
+    },
+    {
+      "id": "7705743330650459422",
+      "title": "Here are five strong hashtags combining your Minnesota rap identity with Detroit-style beats:",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Music"
+      ],
+      "description": "Here are five strong hashtags combining your Minnesota rap identity with Detroit-style beats: ​#MinnesotaRapper ​#DetroitTypeBeat ​#MNtoDetroit ​#MidwestRap ​#TwinCitiesHipHop",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7705743330650459422",
+      "media_kind": "music",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-08",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "MinnesotaRapper",
+          "DetroitTypeBeat",
+          "MNtoDetroit",
+          "MidwestRap",
+          "TwinCitiesHipHop"
+        ]
+      }
+    },
+    {
+      "id": "7705582581315538207",
+      "title": "AnimeFighter",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "#AnimeFighter ​#3DAnime ​#BeatEmUp ​#AnimeAction ​#3DGaming",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7705582581315538207",
+      "media_kind": "unknown",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-08",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "AnimeFighter",
+          "3DAnime",
+          "BeatEmUp",
+          "AnimeAction",
+          "3DGaming"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-11-05",
+  "last_checked": "2026-11-08",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-11-05"
+    "last_checked": "2026-11-08"
   }
 }
