@@ -592,16 +592,66 @@
           "3DGaming"
         ]
       }
+    },
+    {
+      "id": "7706459276902026527",
+      "title": "DetroitBeats",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Music"
+      ],
+      "description": "DetroitBeats ​#MinnesotaProducer ​#MidwestHipHop ​#DetroitTypeBeat ​#MNMusicScene",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7706459276902026527",
+      "media_kind": "music",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-10",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "MinnesotaProducer",
+          "MidwestHipHop",
+          "DetroitTypeBeat",
+          "MNMusicScene"
+        ]
+      }
+    },
+    {
+      "id": "7706434819734916366",
+      "title": "DetroitBeat",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Music"
+      ],
+      "description": "DetroitBeat ​#MinnesotaProducer ​#MidwestBeats ​#DetroitTypeBeat ​#MNProducer",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7706434819734916366",
+      "media_kind": "music",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-10",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "MinnesotaProducer",
+          "MidwestBeats",
+          "DetroitTypeBeat",
+          "MNProducer"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-11-08",
+  "last_checked": "2026-11-10",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-11-08"
+    "last_checked": "2026-11-10"
   }
 }
