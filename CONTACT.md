@@ -1,11 +1,27 @@
 # Contact and service requests
 
-The three-step Services guide collects voiceover, voice and music requests in an in-memory cart. Each item retains its direction, project type and optional sample reference. Visitors can update, remove or clear items, then open Cart or Order Now to enter their name, email and project details.
+Services leads with Jacob Williams’s voiceovers and narration, alongside the existing character and music choices. The three-step guide collects service, direction, project type and optional sample reference. The request panel retains those choices with a name, email and project brief.
 
-The current action is **Preview order request**, which renders a message on the site. It sends nothing, books nothing and takes no payment. Reload clears cart and contact drafts. The content focuses on commissioning Jacob’s creative work.
+Visitors review the full request before choosing **Send request**. The site sends JSON to Formspree only after that explicit action. This is an inquiry, not a booking or payment. Quote, acceptance and delivery remain a conversation with Jacob.
 
-`services-model.js` owns service options and cart snapshots. `services.js` owns the builder and stable combined order panel. The gallery delegates Services rendering and Order Now opening through `CreatorServices`.
+## Configuration
 
-The older Formspree preparation in `contact-config.js` and `contact-submit.js` remains a guarded fallback in source. The new panel does not call it, even when its public form ID is populated. Supplying an ID does not activate the E1 request preview. An ordering/delivery provider and commercial terms must be selected separately before connecting real messages or payments.
+The public `formId` in `contact-config.js` is `mqpqzqry`, for the Formspree Contact and service inquiries form with verified **admin@impressionking.com** selected as recipient. This file is public: never put account credentials, API keys or passwords in it. The recipient is managed in Formspree, not in the browser payload.
 
-Checks: `node --test tests/services-model.test.cjs` and `SITE_URL=http://127.0.0.1:8847 node tests/services.browser.cjs` after starting the preview server. The browser check includes provider configuration but verifies zero network writes, retained drafts and literal rendering of supplied text.
+An empty or invalid ID keeps the site in preview-only mode, with no Send button or provider request. A syntactically valid ID does not prove the provider or mailbox is configured. Verify the recipient and an authorized end-to-end test before claiming email delivery works.
+
+The sending state blocks repeat clicks. A confirmed submission cannot be sent again unchanged during the page session. Network failures, timeouts, server errors and malformed success responses are marked unconfirmed, with a warning that a manual retry could duplicate the message. Rejected requests keep the draft too. Success confirms provider acceptance, not inbox delivery. Nothing retries automatically.
+
+Cart, draft and sent-request history stay in memory only and clear on reload. Closing the panel preserves them. No payment details or file uploads are collected.
+
+`services-model.js` owns choices and cart snapshots. `services.js` owns the visible builder, review and delivery. `contact-submit.js` remains the older hidden-form fallback; the current gallery routes contact entry points through `CreatorServices`.
+
+## Local checks
+
+Start `python3 -m http.server 8851 --bind 127.0.0.1`, then run:
+
+- `SITE_URL=http://127.0.0.1:8851 node --test tests/*.test.cjs`
+- `SITE_URL=http://127.0.0.1:8851 node tests/services.browser.cjs`
+- `python3 -m unittest discover -s tests -p '*_test.py'`
+
+Delivery tests intercept all Formspree requests and use synthetic responses. They never submit real inquiries. Real mailbox delivery needs a separately authorized test.

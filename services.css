@@ -73,3 +73,13 @@
  .sc-build-services button{min-height:44px;padding:8px 4px}.sc-emblem{display:none}
  .sc-guide-actions{flex-wrap:wrap}.sc-guide-actions>.sc-primary{max-width:100%}
 }
+
+/* Inquiry feedback uses words and focus as well as color. */
+.sc-delivery-status{line-height:1.6;overflow-wrap:anywhere}
+.sc-delivery-status:empty{display:none}
+.sc-delivery-status:not(:empty){padding:14px;border:1px solid var(--g-edge)}
+.sc-delivery-status[data-delivery-state="success"]{border-color:#74bd98}
+.sc-delivery-status[data-delivery-state="error"]{border-color:#d8af70}
+.sc-delivery-status:focus{outline:2px solid var(--g-accent);outline-offset:3px}
+.sc-request-preview [data-edit-cart]{margin-top:12px}
+.sc-request-preview [data-send-request][hidden]{display:none}
