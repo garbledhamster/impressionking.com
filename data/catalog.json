@@ -642,16 +642,67 @@
           "MNProducer"
         ]
       }
+    },
+    {
+      "id": "7707354670582205727",
+      "title": "YuGiOhDuelLinks",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "#YuGiOhDuelLinks #DuelLinks #YugiohCommunity #YuGiOhTCG #KingOfGames",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7707354670582205727",
+      "media_kind": "unknown",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-12",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "YuGiOhDuelLinks",
+          "DuelLinks",
+          "YugiohCommunity",
+          "YuGiOhTCG",
+          "KingOfGames"
+        ]
+      }
+    },
+    {
+      "id": "7707129353364049182",
+      "title": "DuelLinks",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "DuelLinks ​#YuGiOh ​#DuelLinksOnline ​#YuGiOhCommunity ​#MobileGaming",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7707129353364049182",
+      "media_kind": "unknown",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-12",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "YuGiOh",
+          "DuelLinksOnline",
+          "YuGiOhCommunity",
+          "MobileGaming"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-11-10",
+  "last_checked": "2026-11-12",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-11-10"
+    "last_checked": "2026-11-12"
   }
 }

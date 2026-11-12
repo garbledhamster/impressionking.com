@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.tiktok.com/embed/@impressionking30",
-  "retrieved_at": "2026-11-10T18:41:20.155144+00:00",
+  "retrieved_at": "2026-11-12T18:56:55.793097+00:00",
   "coverage": "public widget recent window; not full account history",
   "videos": [
     {
@@ -9,7 +9,23 @@
       "authorUniqueId": "impressionking30",
       "height": 1024,
       "width": 576,
-      "playCount": 742
+      "playCount": 743
+    },
+    {
+      "id": "7707354670582205727",
+      "desc": "#YuGiOhDuelLinks #DuelLinks #YugiohCommunity #YuGiOhTCG #KingOfGames",
+      "authorUniqueId": "impressionking30",
+      "height": 1280,
+      "width": 720,
+      "playCount": 4
+    },
+    {
+      "id": "7707129353364049182",
+      "desc": "DuelLinks ​#YuGiOh ​#DuelLinksOnline ​#YuGiOhCommunity ​#MobileGaming",
+      "authorUniqueId": "impressionking30",
+      "height": 1280,
+      "width": 720,
+      "playCount": 105
     },
     {
       "id": "7706459276902026527",
@@ -17,7 +33,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 17
+      "playCount": 26
     },
     {
       "id": "7706434819734916366",
@@ -25,7 +41,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 17
+      "playCount": 22
     },
     {
       "id": "7705746711062301982",
@@ -33,7 +49,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 52
+      "playCount": 71
     },
     {
       "id": "7705743330650459422",
@@ -41,7 +57,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 80
+      "playCount": 82
     },
     {
       "id": "7705582581315538207",
@@ -49,7 +65,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 93
+      "playCount": 97
     },
     {
       "id": "7704176831364091167",
@@ -65,7 +81,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 167
+      "playCount": 174
     },
     {
       "id": "7702902787134328095",
@@ -73,23 +89,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 179
-    },
-    {
-      "id": "7702885339668483359",
-      "desc": "#AISelfie ​#AIAvatar ​#AIGenerated ​#AIContentCreator ​#DigitalTwin",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 85
-    },
-    {
-      "id": "7702567019811474719",
-      "desc": "​#LionKingImpressions ​#ScarAndMufasa ​#VoiceActorTikTok ​#DisneyVoiceImpressions ​#BePrepared",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 93
+      "playCount": 181
     }
   ]
 }
