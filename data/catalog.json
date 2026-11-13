@@ -693,16 +693,42 @@
           "MobileGaming"
         ]
       }
+    },
+    {
+      "id": "7707515753762704671",
+      "title": "AnimatedMusicVideo",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "#AnimatedMusicVideo ​#IndieAnimation ​#MusicVideoProduction ​#AnimationArt ​#VisualStorytelling",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7707515753762704671",
+      "media_kind": "unknown",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-13",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "AnimatedMusicVideo",
+          "IndieAnimation",
+          "MusicVideoProduction",
+          "AnimationArt",
+          "VisualStorytelling"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-11-12",
+  "last_checked": "2026-11-13",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-11-12"
+    "last_checked": "2026-11-13"
   }
 }

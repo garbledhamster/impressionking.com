@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.tiktok.com/embed/@impressionking30",
-  "retrieved_at": "2026-11-12T18:56:55.793097+00:00",
+  "retrieved_at": "2026-11-13T18:31:06.952899+00:00",
   "coverage": "public widget recent window; not full account history",
   "videos": [
     {
@@ -9,7 +9,15 @@
       "authorUniqueId": "impressionking30",
       "height": 1024,
       "width": 576,
-      "playCount": 743
+      "playCount": 744
+    },
+    {
+      "id": "7707515753762704671",
+      "desc": "#AnimatedMusicVideo ​#IndieAnimation ​#MusicVideoProduction ​#AnimationArt ​#VisualStorytelling",
+      "authorUniqueId": "impressionking30",
+      "height": 1278,
+      "width": 720,
+      "playCount": 34
     },
     {
       "id": "7707354670582205727",
@@ -17,7 +25,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 4
+      "playCount": 106
     },
     {
       "id": "7707129353364049182",
@@ -25,7 +33,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 105
+      "playCount": 127
     },
     {
       "id": "7706459276902026527",
@@ -33,7 +41,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 26
+      "playCount": 27
     },
     {
       "id": "7706434819734916366",
@@ -41,7 +49,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 22
+      "playCount": 25
     },
     {
       "id": "7705746711062301982",
@@ -49,7 +57,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 71
+      "playCount": 74
     },
     {
       "id": "7705743330650459422",
@@ -57,7 +65,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 82
+      "playCount": 83
     },
     {
       "id": "7705582581315538207",
@@ -65,7 +73,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 97
+      "playCount": 98
     },
     {
       "id": "7704176831364091167",
@@ -73,7 +81,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 50
+      "playCount": 51
     },
     {
       "id": "7702916773472996638",
@@ -82,14 +90,6 @@
       "height": 1280,
       "width": 720,
       "playCount": 174
-    },
-    {
-      "id": "7702902787134328095",
-      "desc": "#AIHorrorStories ​#TrueAIHorror ​#SentientAI ​#CreepyAI ​#DigitalHorror",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 181
     }
   ]
 }
