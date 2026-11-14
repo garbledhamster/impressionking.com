@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.tiktok.com/embed/@impressionking30",
-  "retrieved_at": "2026-11-13T18:31:06.952899+00:00",
+  "retrieved_at": "2026-11-14T17:09:39.330024+00:00",
   "coverage": "public widget recent window; not full account history",
   "videos": [
     {
@@ -12,12 +12,20 @@
       "playCount": 744
     },
     {
+      "id": "7707771717380246815",
+      "desc": "episode: #AnimatedStorytime, #MyLifeAnimated, #TheNewNeighbor, #StorytimeAnimation, and #AnimationCommunity.",
+      "authorUniqueId": "impressionking30",
+      "height": 1278,
+      "width": 720,
+      "playCount": 113
+    },
+    {
       "id": "7707515753762704671",
       "desc": "#AnimatedMusicVideo ​#IndieAnimation ​#MusicVideoProduction ​#AnimationArt ​#VisualStorytelling",
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 34
+      "playCount": 60
     },
     {
       "id": "7707354670582205727",
@@ -25,7 +33,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 106
+      "playCount": 117
     },
     {
       "id": "7707129353364049182",
@@ -33,7 +41,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 127
+      "playCount": 135
     },
     {
       "id": "7706459276902026527",
@@ -41,7 +49,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 27
+      "playCount": 32
     },
     {
       "id": "7706434819734916366",
@@ -49,7 +57,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 25
+      "playCount": 27
     },
     {
       "id": "7705746711062301982",
@@ -57,7 +65,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 74
+      "playCount": 78
     },
     {
       "id": "7705743330650459422",
@@ -65,7 +73,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 83
+      "playCount": 85
     },
     {
       "id": "7705582581315538207",
@@ -73,7 +81,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 98
+      "playCount": 100
     },
     {
       "id": "7704176831364091167",
@@ -81,15 +89,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 51
-    },
-    {
-      "id": "7702916773472996638",
-      "desc": "​#AIHorror ​#TrueHorrorStories ​#ScaryAI ​#HorrorTikTok ​#CreepyStories",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 174
+      "playCount": 52
     }
   ]
 }
