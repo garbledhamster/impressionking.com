@@ -745,16 +745,40 @@
           "AnimationCommunity"
         ]
       }
+    },
+    {
+      "id": "7708094959005469982",
+      "title": "ComedyMusic",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "ComedyMusic ​#OriginalSong ​#VoiceActing ​#MakeThemLaugh",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7708094959005469982",
+      "media_kind": "voice",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-15",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "OriginalSong",
+          "VoiceActing",
+          "MakeThemLaugh"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-11-14",
+  "last_checked": "2026-11-15",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-11-14"
+    "last_checked": "2026-11-15"
   }
 }
