@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.tiktok.com/embed/@impressionking30",
-  "retrieved_at": "2026-11-15T17:42:45.344524+00:00",
+  "retrieved_at": "2026-11-16T21:02:13.684029+00:00",
   "coverage": "public widget recent window; not full account history",
   "videos": [
     {
@@ -9,7 +9,15 @@
       "authorUniqueId": "impressionking30",
       "height": 1024,
       "width": 576,
-      "playCount": 744
+      "playCount": 746
+    },
+    {
+      "id": "7708547039218404638",
+      "desc": "DuelLinks #YuGiOhDuelLinks #RageQuit #OnlineDueling #YuGiOhMemes",
+      "authorUniqueId": "impressionking30",
+      "height": 1280,
+      "width": 720,
+      "playCount": 111
     },
     {
       "id": "7708094959005469982",
@@ -17,7 +25,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 28
+      "playCount": 29
     },
     {
       "id": "7707771717380246815",
@@ -25,7 +33,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 121
+      "playCount": 123
     },
     {
       "id": "7707515753762704671",
@@ -33,7 +41,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 71
+      "playCount": 76
     },
     {
       "id": "7707354670582205727",
@@ -41,7 +49,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 118
+      "playCount": 119
     },
     {
       "id": "7707129353364049182",
@@ -49,7 +57,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 136
+      "playCount": 142
     },
     {
       "id": "7706459276902026527",
@@ -65,7 +73,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 27
+      "playCount": 28
     },
     {
       "id": "7705746711062301982",
@@ -82,14 +90,6 @@
       "height": 1280,
       "width": 720,
       "playCount": 85
-    },
-    {
-      "id": "7705582581315538207",
-      "desc": "#AnimeFighter ​#3DAnime ​#BeatEmUp ​#AnimeAction ​#3DGaming",
-      "authorUniqueId": "impressionking30",
-      "height": 1278,
-      "width": 720,
-      "playCount": 101
     }
   ]
 }
