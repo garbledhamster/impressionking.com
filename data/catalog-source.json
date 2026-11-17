@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.tiktok.com/embed/@impressionking30",
-  "retrieved_at": "2026-11-16T21:02:13.684029+00:00",
+  "retrieved_at": "2026-11-17T19:51:34.282299+00:00",
   "coverage": "public widget recent window; not full account history",
   "videos": [
     {
@@ -9,7 +9,23 @@
       "authorUniqueId": "impressionking30",
       "height": 1024,
       "width": 576,
-      "playCount": 746
+      "playCount": 747
+    },
+    {
+      "id": "7708940557510364430",
+      "desc": "PositiveRap #ComedyHipHop #UpliftingVibes #DetroitTypeBeat #FeelGoodMusic",
+      "authorUniqueId": "impressionking30",
+      "height": 1280,
+      "width": 720,
+      "playCount": 19
+    },
+    {
+      "id": "7708927701427457310",
+      "desc": "PositiveHipHop #UpliftingRap #DetroitMusic #ConsciousRap",
+      "authorUniqueId": "impressionking30",
+      "height": 1280,
+      "width": 720,
+      "playCount": 7
     },
     {
       "id": "7708547039218404638",
@@ -17,7 +33,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 111
+      "playCount": 121
     },
     {
       "id": "7708094959005469982",
@@ -33,7 +49,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 123
+      "playCount": 124
     },
     {
       "id": "7707515753762704671",
@@ -41,7 +57,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1278,
       "width": 720,
-      "playCount": 76
+      "playCount": 79
     },
     {
       "id": "7707354670582205727",
@@ -74,22 +90,6 @@
       "height": 1280,
       "width": 720,
       "playCount": 28
-    },
-    {
-      "id": "7705746711062301982",
-      "desc": "MinneapolisToDetroit ​#MNBeatmaker ​#MinnesotaProducer ​#DetroitStyleBeats ​#MidwestProducer",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 81
-    },
-    {
-      "id": "7705743330650459422",
-      "desc": "Here are five strong hashtags combining your Minnesota rap identity with Detroit-style beats: ​#MinnesotaRapper ​#DetroitTypeBeat ​#MNtoDetroit ​#MidwestRap ​#TwinCitiesHipHop",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 85
     }
   ]
 }

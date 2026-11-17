@@ -794,16 +794,65 @@
           "YuGiOhMemes"
         ]
       }
+    },
+    {
+      "id": "7708940557510364430",
+      "title": "PositiveRap",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Music"
+      ],
+      "description": "PositiveRap #ComedyHipHop #UpliftingVibes #DetroitTypeBeat #FeelGoodMusic",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7708940557510364430",
+      "media_kind": "music",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-17",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "ComedyHipHop",
+          "UpliftingVibes",
+          "DetroitTypeBeat",
+          "FeelGoodMusic"
+        ]
+      }
+    },
+    {
+      "id": "7708927701427457310",
+      "title": "PositiveHipHop",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "PositiveHipHop #UpliftingRap #DetroitMusic #ConsciousRap",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7708927701427457310",
+      "media_kind": "unknown",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-17",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "UpliftingRap",
+          "DetroitMusic",
+          "ConsciousRap"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-11-16",
+  "last_checked": "2026-11-17",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-11-16"
+    "last_checked": "2026-11-17"
   }
 }
