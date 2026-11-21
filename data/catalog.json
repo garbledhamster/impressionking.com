@@ -999,16 +999,67 @@
           "GamingHighlights"
         ]
       }
+    },
+    {
+      "id": "7710422350210157855",
+      "title": "ShaggyImpression",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "#ShaggyImpression ​#ScoobyDoo ​#VoiceActing ​#ShaggyVoice ​#VoiceImpression",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7710422350210157855",
+      "media_kind": "voice",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-21",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "ShaggyImpression",
+          "ScoobyDoo",
+          "VoiceActing",
+          "ShaggyVoice",
+          "VoiceImpression"
+        ]
+      }
+    },
+    {
+      "id": "7710418790684577054",
+      "title": "Beetlejuice",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "Beetlejuice #VoiceImpression #VoiceActing #BeetlejuiceImpression #ItsShowtime",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7710418790684577054",
+      "media_kind": "voice",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-21",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "VoiceImpression",
+          "VoiceActing",
+          "BeetlejuiceImpression",
+          "ItsShowtime"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-11-20",
+  "last_checked": "2026-11-21",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-11-20"
+    "last_checked": "2026-11-21"
   }
 }
