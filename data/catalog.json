@@ -1050,16 +1050,41 @@
           "ItsShowtime"
         ]
       }
+    },
+    {
+      "id": "7711871116024827166",
+      "title": "VoiceActing",
+      "character": "",
+      "franchise": "",
+      "categories": [
+        "Uncategorized"
+      ],
+      "description": "VoiceActing #TheLionKing #VoiceImpression #ScarVsSimba #ImpressionChallenge",
+      "thumbnail_url": null,
+      "duration": null,
+      "source_url": "https://www.tiktok.com/@impressionking30/video/7711871116024827166",
+      "media_kind": "voice",
+      "provenance": {
+        "source": "https://www.tiktok.com/embed/@impressionking30",
+        "checked": "2026-11-25",
+        "classification": "caption-keywords-v1",
+        "classification_evidence": [
+          "TheLionKing",
+          "VoiceImpression",
+          "ScarVsSimba",
+          "ImpressionChallenge"
+        ]
+      }
     }
   ],
   "curation": "mixed",
-  "last_checked": "2026-11-21",
+  "last_checked": "2026-11-25",
   "complete_repertoire": false,
   "collection": {
     "source": "https://www.tiktok.com/embed/@impressionking30",
     "method": "public-creator-widget",
     "coverage": "recent-window-plus-retained-posts",
     "returned_posts": 11,
-    "last_checked": "2026-11-21"
+    "last_checked": "2026-11-25"
   }
 }

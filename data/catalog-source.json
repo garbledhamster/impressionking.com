@@ -1,6 +1,6 @@
 {
   "source_url": "https://www.tiktok.com/embed/@impressionking30",
-  "retrieved_at": "2026-11-21T17:58:43.999863+00:00",
+  "retrieved_at": "2026-11-25T20:28:45.392442+00:00",
   "coverage": "public widget recent window; not full account history",
   "videos": [
     {
@@ -9,7 +9,15 @@
       "authorUniqueId": "impressionking30",
       "height": 1024,
       "width": 576,
-      "playCount": 751
+      "playCount": 754
+    },
+    {
+      "id": "7711871116024827166",
+      "desc": "VoiceActing #TheLionKing #VoiceImpression #ScarVsSimba #ImpressionChallenge",
+      "authorUniqueId": "impressionking30",
+      "height": 1280,
+      "width": 720,
+      "playCount": 72
     },
     {
       "id": "7710422350210157855",
@@ -17,7 +25,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 92
+      "playCount": 146
     },
     {
       "id": "7710418790684577054",
@@ -25,7 +33,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 92
+      "playCount": 111
     },
     {
       "id": "7710314217823358238",
@@ -33,7 +41,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 37
+      "playCount": 52
     },
     {
       "id": "7710313107876236574",
@@ -41,7 +49,7 @@
       "authorUniqueId": "impressionking30",
       "height": 720,
       "width": 1280,
-      "playCount": 48
+      "playCount": 55
     },
     {
       "id": "7710050705729539359",
@@ -49,7 +57,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 40
+      "playCount": 49
     },
     {
       "id": "7710050461407104287",
@@ -57,7 +65,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 34
+      "playCount": 48
     },
     {
       "id": "7710049524605078815",
@@ -65,7 +73,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 28
+      "playCount": 34
     },
     {
       "id": "7710049238909979934",
@@ -73,7 +81,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 18
+      "playCount": 24
     },
     {
       "id": "7708940557510364430",
@@ -81,15 +89,7 @@
       "authorUniqueId": "impressionking30",
       "height": 1280,
       "width": 720,
-      "playCount": 33
-    },
-    {
-      "id": "7708927701427457310",
-      "desc": "PositiveHipHop #UpliftingRap #DetroitMusic #ConsciousRap",
-      "authorUniqueId": "impressionking30",
-      "height": 1280,
-      "width": 720,
-      "playCount": 11
+      "playCount": 34
     }
   ]
 }
